@@ -1,0 +1,5 @@
+@mixin dt {
+    @media (min-width: 26.875rem) {
+        @content;
+    }
+}

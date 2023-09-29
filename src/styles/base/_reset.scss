@@ -1,0 +1,29 @@
+@use '../abstracts/breakpoints' as *;
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle 150vh at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background-repeat: no-repeat;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    min-height: 100vh;
+    max-width: 82.5rem;
+
+    @include dt {
+        min-height: unset;
+        height: 48rem;
+    }
+}

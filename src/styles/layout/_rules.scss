@@ -1,0 +1,22 @@
+@use '../abstracts/breakpoints' as *;
+@use '../abstracts/colors' as *;
+
+.rules_btn {
+    background-color: transparent;
+    border: solid 2px $header-outline;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    margin: auto 0 2rem 0;
+    align-self: center;
+    padding: .6rem 2.25rem;
+    color: white;
+    letter-spacing: .15rem;
+    cursor: pointer;
+
+    @include dt {
+        margin-inline-end: 2rem;
+        align-self: flex-end;
+        font-size: 1rem;
+    }
+
+}
