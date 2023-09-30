@@ -6,7 +6,7 @@
     border: solid 2px $header-outline;
     text-transform: uppercase;
     border-radius: .5rem;
-    margin: auto 0 2rem 0;
+    margin: auto 0 1.25rem 0;
     align-self: center;
     padding: .6rem 2.25rem;
     color: white;
@@ -19,4 +19,28 @@
         font-size: 1rem;
     }
 
+}
+
+.rulesModal {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+    @include dt {}
+
+    &_header {
+        text-transform: uppercase;
+    }
+
+    &_img {
+        width: 80%;
+
+        @include dt {
+            width: 25%;
+        }
+    }
 }
