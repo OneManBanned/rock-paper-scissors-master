@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
-export default function Modal({ openModal, closeModal }) {
-    const ref = useRef();
+export default function Modal({ openModal, closeModal }: any) {
+    const ref: any = useRef();
     useEffect(() => {
         if (openModal) {
             ref.current?.showModal();
@@ -13,13 +13,14 @@ export default function Modal({ openModal, closeModal }) {
     return (
         <>
             <dialog
-                className="rulesModal"
                 ref={ref}
                 onCancel={closeModal}
             >
-                <h2 className="rulesModal_header">rules</h2>
-                <button className="rulesModal_close" onClick={closeModal}>close</button>
-                <img className="rulesModal_img" src="/assets/images/image-rules.svg" alt="rock beats scissors, scissors beats paper, paper beats rock" />
+                <div className="rulesModal">
+                    <h2 className="rulesModal_header font-700">rules</h2>
+                    <button className="rulesModal_close" aria-label="close modal" onClick={closeModal}></button>
+                    <img className="rulesModal_img" src="/assets/images/image-rules.svg" alt="rock beats scissors, scissors beats paper, paper beats rock" />
+                </div>
             </dialog>
         </>
     )

@@ -8,7 +8,7 @@ const g = new newGame(0)
 function App() {
 
   const [score, setScore] = useState<number>(g.currentScore)
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState<boolean>(false)
 
   return (
     <>
