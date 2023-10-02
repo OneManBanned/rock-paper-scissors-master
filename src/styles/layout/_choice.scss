@@ -10,6 +10,11 @@
     align-items: center;
     justify-content: center;
     border: none;
+    transition: width .5s ease;
+
+    &:hover {
+        width: 73%;
+    }
 
     &_rock {
         bottom: 0;

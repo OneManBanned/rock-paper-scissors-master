@@ -1,4 +1,4 @@
-export default function Header({ scoreState }) {
+export default function Header({ scoreState }: any) {
 
     return (
         <>

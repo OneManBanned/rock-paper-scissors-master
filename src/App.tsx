@@ -1,49 +1,55 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
 import Modal from './components/Modal'
+import Reveal from './components/Reveal'
 import Header from './components/Header'
+import Choose from "./components/Choose"
+
 import '../dist/css/index.css'
-import { newGame } from './interface/interface'
-const g = new newGame(0)
 
 function App() {
 
-  const [score, setScore] = useState<number>(g.currentScore)
+  const optionsArr: string[] = ['rock', 'paper', 'scissors']
+
+  const [score, setScore] = useState<number>(0)
   const [modal, setModal] = useState<boolean>(false)
+  const [choice, setChoice] = useState<any>(undefined)
+  const [thisGameArr, setThisGameArr] = useState<string[]>([])
+
+
+  useEffect(() => {
+    if (choice) {
+      const choiceIndex: number = optionsArr.indexOf(choice)
+      const gameArr: string[] = optionsArr.slice(choiceIndex)
+        .concat(optionsArr.slice(0, choiceIndex))
+      setThisGameArr(gameArr)
+    }
+  }, [choice])
 
   return (
     <>
       <main>
+        {/* Header with Score */}
         <Header scoreState={score} />
 
-        <div className="gameContainer">
-          <img className="gameContainer_tri" src="/assets/images/bg-triangle.svg" alt="" />
-          {/* Rock */}
-          <button className="choiceButton choiceButton_rock" value="rock" onClick={(e) => console.log(e)}>
-            <div>
-              <img src="/assets/images/icon-rock.svg" alt="" />
-            </div>
-          </button>
-          {/* Paper */}
-          <button className="choiceButton choiceButton_paper" value="paper" onClick={(e) => console.log(e)}>
-            <div>
-              <img src="/assets/images/icon-paper.svg" alt="" />
-            </div>
-          </button>
-          {/* Scissors */}
-          <button className="choiceButton choiceButton_scissors" value="scissors" onClick={(e) => console.log(e)}>
-            <div>
-              <img src="/assets/images/icon-scissors.svg" alt="" />
-            </div>
-          </button>
-        </div>
+        {/* Main game logic */}
+        {!choice
+          ? <Choose playerChoice={setChoice} choice={choice} options={optionsArr} />
+          : <Reveal thisGameArr={thisGameArr} />
+        }
+
+        {/* Button to open rules Modal */}
         <button
           className="rules_btn font-600"
           onClick={() => setModal(true)}
         >rules</button>
+
+        {/* Rules Modal */}
         <Modal
           openModal={modal}
           closeModal={() => setModal(false)}
         />
+
       </main>
     </>
   )
