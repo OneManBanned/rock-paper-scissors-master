@@ -1,0 +1,54 @@
+@use '../abstracts/breakpoints' as *;
+@use '../abstracts/colors' as *;
+
+.chooseContainer {
+    position: relative;
+    max-width: 44rem;
+    width: 50%;
+    margin-block-start: 20vh;
+
+    @include dt {
+        width: 50vw;
+        max-width: 18rem;
+        margin-block-start: 10.25rem;
+    }
+
+    &_tri {
+        width: 100%;
+        aspect-ratio: 1;
+    }
+}
+
+.choiceButton {
+    width: 71%;
+    position: absolute;
+    transition: width .5s ease;
+
+    &:hover {
+        width: 73%;
+    }
+
+    &_rock {
+        transform: translateY(18%);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+    }
+
+    &_paper {
+        top: 0;
+        left: 0;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &_scissors {
+        top: 0;
+        right: 0;
+        transform: translatex(50%) translatey(-50%);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

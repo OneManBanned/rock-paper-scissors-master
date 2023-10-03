@@ -1,1 +1,0 @@
-const RPSArray: string[] = ['rock', 'paper', 'scissors']
