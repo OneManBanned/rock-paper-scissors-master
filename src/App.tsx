@@ -8,20 +8,18 @@ import '../dist/css/index.css'
 function App() {
 
   const optionsArr: string[] = ['rock', 'paper', 'scissors']
-  let housePick: number = 0
 
   const [score, setScore] = useState<number>(0)
   const [modal, setModal] = useState<boolean>(false)
   const [choice, setChoice] = useState<any>(undefined)
-  const [thisGameArr, setThisGameArr] = useState<string[]>([])
+  const [currentGameArr, setCurrentGameArr] = useState<string[]>([])
 
   useEffect(() => {
     if (choice) {
       const choiceIndex: number = optionsArr.indexOf(choice)
       const gameArr: string[] = optionsArr.slice(choiceIndex)
         .concat(optionsArr.slice(0, choiceIndex))
-      setThisGameArr(gameArr)
-      housePick = Math.floor(Math.random() * 3)
+      setCurrentGameArr(gameArr)
     }
   }, [choice])
 
@@ -33,8 +31,14 @@ function App() {
 
         {/* Main game logic */}
         {!choice
-          ? <Choose playerChoice={setChoice} choice={choice} options={optionsArr} />
-          : <Reveal thisGameArr={thisGameArr} choice={choice} housePick={housePick} setScore={setScore} setChoice={setChoice} />
+          ? <Choose
+            playerChoice={setChoice}
+            choice={choice}
+            options={optionsArr} />
+          : <Reveal
+            currentGameArr={currentGameArr}
+            setScore={setScore}
+            setChoice={setChoice} />
         }
 
         {/* Button to open rules Modal */}

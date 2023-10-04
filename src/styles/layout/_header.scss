@@ -3,13 +3,13 @@
 
 
 .headerContainer {
-    margin-block-start: 1.25rem;
+    margin-block-start: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     max-width: 44rem;
     padding: .75rem;
-    width: 90%;
+    width: 85%;
     border: solid .2rem $header-outline;
     border-radius: .5rem;
 
@@ -20,7 +20,7 @@
     }
 
     &_name {
-        width: 25%;
+        width: 30%;
         margin-inline-start: .5rem;
 
         @include dt {
