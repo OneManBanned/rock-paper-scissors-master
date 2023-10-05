@@ -1,7 +1,7 @@
 @use '../abstracts/breakpoints' as *;
+@use '../abstracts/colors' as *;
 
 .revealContainer {
-    max-width: 44rem;
     width: 85%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -9,8 +9,9 @@
     margin-block-start: 5.5rem;
 
     @include dt {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 0fr 1fr;
         grid-template-rows: 1fr;
+        overflow: hidden;
     }
 
     &_result {
@@ -20,11 +21,50 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        background-color: red;
+        margin-top: min(2rem);
+
+        @include dt {
+            grid-column: 2/3;
+            justify-content: center;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            color: white;
+            font-size: clamp(1rem, -1.087rem + 16.6957vw, 3.4rem);
+
+            @include dt {
+                font-size: clamp(1.5rem, 0.21rem + 4.8vw, 3.75rem);
+            }
+        }
+
+        button {
+            cursor: pointer;
+            padding: .9rem 3.5rem;
+            border-radius: .75rem;
+            border: none;
+            text-transform: uppercase;
+            margin-block-end: 1rem;
+            font-size: clamp(0.65rem, 0.3457rem + 2.4348vw, 1rem);
+            letter-spacing: .1rem;
+            color: $dark-text;
+
+            &:hover {
+                color: hsl(349, 70%, 56%);
+            }
+
+            @include dt {
+                font-size: clamp(0.75rem, 0.6067rem + 0.5333vw, 1rem);
+                padding: 1rem 0;
+                min-width: 100%;
+            }
+        }
 
         @include dt {
             grid-column: 2/3;
             grid-row: 1/2;
+            overflow: hidden;
         }
     }
 
@@ -35,11 +75,19 @@
         flex-direction: column;
         align-items: self-start;
 
+        @include dt {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
         h2 {
             margin-left: 6vw;
+
+            @include dt {
+                margin-left: 0;
+            }
         }
     }
-
 
     &_house {
         grid-column: 2/3;
@@ -50,18 +98,47 @@
 
         @include dt {
             grid-column: 3/4;
+            flex-direction: column-reverse;
+            align-items: center;
         }
     }
 
     h2 {
         text-transform: uppercase;
         color: white;
-        font-size: 1rem;
-        letter-spacing: .1rem;
+        font-size: clamp(0.4rem, -0.0348rem + 3.4783vw, 0.9rem);
+        letter-spacing: .125rem;
         margin-top: 1.75rem;
+
+        @include dt {
+            font-size: clamp(0.75rem, 0.32rem + 1.6vw, 1.5rem);
+            margin-block: 0 4rem;
+        }
     }
 }
 
 .revealButton {
     width: 82.5%;
+
+    @include dt {
+        width: clamp(8rem, 1.6933rem + 23.4667vw, 19rem);
+    }
+
+    &_blank {
+        background-color: hsl(237, 49%, 15%);
+        position: relative;
+        z-index: 2;
+
+        div {
+            background-color: hsl(237, 49%, 15%) !important;
+            box-shadow: none !important;
+
+        }
+    }
+}
+
+.revealed {
+    @include dt {
+        grid-template-columns: 1fr auto 1fr;
+    }
 }
