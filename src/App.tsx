@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Modal from './components/Modal'
+import ButtonModal from "./components/ButtonModal"
 import Reveal from './components/Reveal'
 import Header from './components/Header'
 import Choose from "./components/Choose"
@@ -41,13 +42,7 @@ function App() {
             setChoice={setChoice} />
         }
 
-        {/* Button to open rules Modal */}
-        <button
-          className="rules_btn font-600"
-          onClick={() => setModal(true)}
-        >rules</button>
-
-        {/* Rules Modal */}
+        <ButtonModal setModal={setModal}/>
         <Modal
           openModal={modal}
           closeModal={() => setModal(false)}
