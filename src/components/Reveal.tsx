@@ -19,7 +19,7 @@ export default function Reveal({ currentGameArr, setChoice, setScore }: any) {
     }, [housePick])
     return (
         <div className={reveal ? "revealContainer revealed" : "revealContainer"}>
-            {
+            {reveal &&
                 <div className="revealContainer_result">
                     <p className="font-700">{`you ${resultFunc()}`}</p>
                     <button className="font-700" onClick={() => setChoice(undefined)}>play again</button>

@@ -6,16 +6,16 @@
     display: flex;
     flex-wrap: wrap;
     grid-template-rows: repeat(2, 1fr);
-    margin-block-start: 5.5rem;
     justify-content: center;
     gap: 20%;
-    
+    margin-top: 10vh;
+
     @include dt {
         display: grid;
-        grid-template-columns: 1fr 0fr 1fr;
+        grid-template-columns: 35% 0fr 35%;
         grid-template-rows: 1fr;
-        overflow: hidden;
         gap: 0;
+        margin-top: 2.5rem;
     }
 
     &_result {
@@ -23,12 +23,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: min(2rem);
+        min-height: 100%;
         order: 3;
+        margin-block: min(5rem);
 
         @include dt {
             grid-column: 2/3;
             justify-content: center;
+            margin-top: 0;
         }
 
         p {
@@ -103,7 +105,7 @@
     h2 {
         text-transform: uppercase;
         color: white;
-        font-size: clamp(0.4rem, -0.0348rem + 3.4783vw, 0.9rem);
+        font-size: clamp(0.5rem, 0.2617rem + 1.3617vw, 0.9rem);
         letter-spacing: .125rem;
         margin-top: 1.75rem;
 
@@ -115,7 +117,7 @@
 }
 
 .revealButton {
-width: 100%;
+    width: 100%;
 
     @include dt {
         width: clamp(8rem, 1.6933rem + 23.4667vw, 19rem);

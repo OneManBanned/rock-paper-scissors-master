@@ -5,15 +5,20 @@ import Reveal from './components/Reveal'
 import Header from './components/Header'
 import Choose from "./components/Choose"
 import '../dist/css/index.css'
+import { original, bonus } from './data.tsx'
 
 function App() {
 
-  const optionsArr: string[] = ['rock', 'paper', 'scissors']
-
+  const gameModes = [original, bonus]
   const [score, setScore] = useState<number>(0)
   const [modal, setModal] = useState<boolean>(false)
   const [choice, setChoice] = useState<any>(undefined)
   const [currentGameArr, setCurrentGameArr] = useState<string[]>([])
+  const [mode, setMode] = useState<number>(0)
+
+  console.log(mode, original)
+  const optionsArr: string[] = gameModes[mode].options
+  const rules: string = gameModes[mode].rules
 
   useEffect(() => {
     if (choice) {
@@ -42,8 +47,12 @@ function App() {
             setChoice={setChoice} />
         }
 
-        <ButtonModal setModal={setModal}/>
+        <ButtonModal
+          setMode={setMode}
+          mode={mode}
+          setModal={setModal} />
         <Modal
+          rules={rules}
           openModal={modal}
           closeModal={() => setModal(false)}
         />

@@ -1,44 +1,6 @@
 @use '../abstracts/breakpoints' as *;
 @use '../abstracts/colors' as *;
 
-.btnContainer {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    margin: auto 0 1.25rem 0;
-    @include dt {
-        width: 100%;
-    }
-}
-
-.btn {
-    background-color: transparent;
-    border: solid 2px $header-outline;
-    text-transform: uppercase;
-    border-radius: .5rem;
-    align-self: center;
-    padding: .6rem 2.25rem;
-    color: white;
-    letter-spacing: .15rem;
-    cursor: pointer;
-}
-
-.game_btn {
-
-    @include dt {
-        margin-inline-start: 2rem;
-        font-size: 1rem;
-    }
-}
-
-.rules_btn {
-
-    @include dt {
-        font-size: 1rem;
-        margin-inline-end: 2rem;
-    }
-}
-
 dialog {
     min-width: 100vw;
     min-height: 100vh;
