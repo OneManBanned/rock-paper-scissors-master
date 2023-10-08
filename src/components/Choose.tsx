@@ -1,4 +1,4 @@
-export default function Choose({ playerChoice, currentMode: { background, options, original } }: any) {
+export default function Choose({ setChoice, currentMode: { background, options, original } }: any) {
     return (
         <div className="chooseContainer">
             <img className="chooseContainer_bg" src={background} alt="" />
@@ -9,7 +9,7 @@ export default function Choose({ playerChoice, currentMode: { background, option
                         ? `button originalButton originalButton_${option} button_${option}`
                         : `button bonusButton bonusButton_${option} button_${option}`
                     }
-                    onClick={() => playerChoice(option)}>
+                    onClick={() => setChoice(option)}>
                     <div>
                         <img src={`/assets/images/icon-${option}.svg`} alt={option} />
                     </div>

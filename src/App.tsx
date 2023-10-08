@@ -51,12 +51,12 @@ function App() {
     <>
       <main>
         {/* Header with Score */}
-        <Header scoreState={score} title={currentMode.title} altText={currentMode.options} />
+        <Header scoreState={score} currentMode={currentMode} title={currentMode.title} altText={currentMode.options} />
 
         {/* Main game logic */}
         {!choice
           ? <Choose
-            playerChoice={setChoice}
+            setChoice={setChoice}
             choice={choice}
             currentMode={currentMode}
           />
