@@ -17,6 +17,7 @@ export default function Reveal({ currentGameArr, setChoice, setScore }: any) {
             }
         }, 1000);
     }, [housePick])
+
     return (
         <div className={reveal ? "revealContainer revealed" : "revealContainer"}>
             {reveal &&

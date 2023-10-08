@@ -22,6 +22,7 @@ function App() {
     rules: gameModes[mode].rules,
     title: gameModes[mode].title,
     background: gameModes[mode].background,
+    original: gameModes[mode].original
   }
 
   useEffect(() => {
@@ -29,7 +30,8 @@ function App() {
       options: gameModes[mode].options,
       rules: gameModes[mode].rules,
       title: gameModes[mode].title,
-      background: gameModes[mode].background
+      background: gameModes[mode].background,
+      original: gameModes[mode].original
     }
   }, [mode])
 
@@ -49,15 +51,15 @@ function App() {
     <>
       <main>
         {/* Header with Score */}
-        <Header scoreState={score} title={currentMode.title} />
+        <Header scoreState={score} title={currentMode.title} altText={currentMode.options} />
 
         {/* Main game logic */}
         {!choice
           ? <Choose
             playerChoice={setChoice}
             choice={choice}
-            background={currentMode.background}
-            options={currentMode.options} />
+            currentMode={currentMode}
+          />
           : <Reveal
             currentGameArr={currentGameArr}
             setScore={setScore}

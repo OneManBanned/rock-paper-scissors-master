@@ -5,12 +5,12 @@
     position: relative;
     max-width: 15rem;
     width: 50%;
-    margin-block-start: 20vh;
+    margin-block-start: auto;
 
     @include dt {
         width: 50vw;
         max-width: 18rem;
-        margin-block-start: 10.25rem;
+        margin-block-start: auto;
     }
 
     &_bg {
@@ -19,7 +19,52 @@
     }
 }
 
-.choiceButton {
+.bonusButton {
+    width: 50%;
+    position: absolute;
+
+    &:hover {
+        width: 53%;
+    }
+
+    &_rock {
+        bottom: 0;
+        right: 0;
+        transform: translateY(50%) translateX(20%);
+    }
+
+    &_lizard {
+        bottom: 0;
+        left: 0;
+        transform: translateY(50%) translateX(-20%);
+    }
+
+
+    &_scissors {
+        top: 0;
+        right: 0;
+        left: 0;
+        margin-inline: auto;
+        transform: translateY(-50%);
+    }
+
+    &_paper {
+        right: 0;
+        top: 0;
+        transform: translateY(30%) translateX(60%);
+    }
+
+    &_spock {
+        top: 0;
+        transform: translateY(30%) translateX(-60%);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.originalButton {
     width: 71%;
     position: absolute;
     transition: width .5s ease;
@@ -46,15 +91,6 @@
         top: 0;
         right: 0;
         transform: translatex(50%) translatey(-50%);
-    }
-
-    &_lizard {
-        top: 0;
-    }
-
-    &_spock {
-        bottom: 0;
-        right: 0;
     }
 
     &:hover {

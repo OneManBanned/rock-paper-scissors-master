@@ -21,6 +21,16 @@
         box-shadow: inset 0 -5px 0 hsl(34, 77%, 45%);
     }
 
+    &_lizard {
+        background-color: hsl(261, 73%, 60%);
+        box-shadow: inset 0 -5px 0 hsl(261, 72%, 63%);
+    }
+
+    &_spock {
+        background-color: hsl(189, 59%, 53%);
+        box-shadow: inset 0 -5px 0 hsl(189, 58%, 57%);
+    }
+
     div {
         display: flex;
         box-shadow: inset 0 5px 0 rgb(216, 216, 216);

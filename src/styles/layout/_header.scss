@@ -20,12 +20,9 @@
     }
 
     &_name {
-        width: 30%;
         margin-inline-start: .5rem;
 
-        @include dt {
-            min-width: 10rem;
-        }
+        @include dt {}
     }
 
     &_scoreBoard {
