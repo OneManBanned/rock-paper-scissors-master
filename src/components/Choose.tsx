@@ -1,7 +1,7 @@
-export default function Choose({ playerChoice, options }: any) {
+export default function Choose({ playerChoice, options, background }: any) {
     return (
         <div className="chooseContainer">
-            <img className="chooseContainer_tri" src="/assets/images/bg-triangle.svg" alt="" />
+            <img className="chooseContainer_bg" src={background} alt="" />
             {options.map((option: string, index: number) => {
                 return <button
                     key={index}

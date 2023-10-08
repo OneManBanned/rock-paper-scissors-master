@@ -1,30 +1,46 @@
 import { useState, useEffect } from "react"
 import Modal from './components/Modal'
-import ButtonModal from "./components/ButtonModal"
+import Buttons from "./components/Buttons"
 import Reveal from './components/Reveal'
 import Header from './components/Header'
 import Choose from "./components/Choose"
 import '../dist/css/index.css'
-import { original, bonus } from './data.tsx'
+import { original, bonus, Mode } from './data.tsx'
 
 function App() {
 
   const gameModes = [original, bonus]
+
   const [score, setScore] = useState<number>(0)
   const [modal, setModal] = useState<boolean>(false)
   const [choice, setChoice] = useState<any>(undefined)
   const [currentGameArr, setCurrentGameArr] = useState<string[]>([])
   const [mode, setMode] = useState<number>(0)
 
-  console.log(mode, original)
-  const optionsArr: string[] = gameModes[mode].options
-  const rules: string = gameModes[mode].rules
+  let currentMode: Mode = {
+    options: gameModes[mode].options,
+    rules: gameModes[mode].rules,
+    title: gameModes[mode].title,
+    background: gameModes[mode].background,
+  }
 
   useEffect(() => {
+    currentMode = {
+      options: gameModes[mode].options,
+      rules: gameModes[mode].rules,
+      title: gameModes[mode].title,
+      background: gameModes[mode].background
+    }
+  }, [mode])
+
+
+
+  useEffect(() => {
+    let { options } = currentMode
     if (choice) {
-      const choiceIndex: number = optionsArr.indexOf(choice)
-      const gameArr: string[] = optionsArr.slice(choiceIndex)
-        .concat(optionsArr.slice(0, choiceIndex))
+      const choiceIndex: number = options.indexOf(choice)
+      const gameArr: string[] = options.slice(choiceIndex)
+        .concat(options.slice(0, choiceIndex))
       setCurrentGameArr(gameArr)
     }
   }, [choice])
@@ -33,26 +49,27 @@ function App() {
     <>
       <main>
         {/* Header with Score */}
-        <Header scoreState={score} />
+        <Header scoreState={score} title={currentMode.title} />
 
         {/* Main game logic */}
         {!choice
           ? <Choose
             playerChoice={setChoice}
             choice={choice}
-            options={optionsArr} />
+            background={currentMode.background}
+            options={currentMode.options} />
           : <Reveal
             currentGameArr={currentGameArr}
             setScore={setScore}
             setChoice={setChoice} />
         }
 
-        <ButtonModal
+        <Buttons
           setMode={setMode}
           mode={mode}
           setModal={setModal} />
         <Modal
-          rules={rules}
+          rulesImg={currentMode.rules}
           openModal={modal}
           closeModal={() => setModal(false)}
         />

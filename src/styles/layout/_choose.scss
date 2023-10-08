@@ -13,7 +13,7 @@
         margin-block-start: 10.25rem;
     }
 
-    &_tri {
+    &_bg {
         width: 100%;
         aspect-ratio: 1;
     }
@@ -46,6 +46,15 @@
         top: 0;
         right: 0;
         transform: translatex(50%) translatey(-50%);
+    }
+
+    &_lizard {
+        top: 0;
+    }
+
+    &_spock {
+        bottom: 0;
+        right: 0;
     }
 
     &:hover {
