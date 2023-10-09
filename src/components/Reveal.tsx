@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from 'react-transition-group'
 
 export default function Reveal({ currentGameArr, setChoice, setScore, currentMode: { options } }: any) {
@@ -6,6 +6,10 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
     const [playerChoice] = [...currentGameArr]
     const [housePick, setHousePick] = useState<number>(0)
     const [reveal, setReveal] = useState<boolean>(false)
+
+    const resultRef = useRef(null)
+    const playerRef = useRef(null)
+    const houseRef = useRef(null)
 
     useEffect(() => {
         setTimeout(() => {
@@ -26,33 +30,50 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                 in={reveal}
                 timeout={1000}
                 classNames='revealContainer_animate'
-            >
-                <div className="revealContainer_result">
+                nodeRef={resultRef} >
+                <div ref={resultRef}
+                    className={reveal
+                        ? "revealContainer_result"
+                        : 'revealContainer_result-notRevealed'}>
                     <p className="font-700">{`you ${resultFunc()}`}</p>
                     <button className="font-700" onClick={() => setChoice(undefined)}>play again</button>
                 </div >
             </CSSTransition>
-            <div className="revealContainer_player">
-                <div className={` button revealButton button_${playerChoice}`} >
-                    <div>
-                        <img src={`/assets/images/icon-${playerChoice}.svg`} alt={playerChoice} />
+            <CSSTransition
+                in={reveal}
+                timeout={1000}
+                classNames='revealContainer_playerAnimate'
+                nodeRef={playerRef}
+            >
+                <div ref={playerRef} className="revealContainer_player">
+                    <div className={` button revealButton button_${playerChoice}`} >
+                        <div>
+                            <img src={`/assets/images/icon-${playerChoice}.svg`} alt={playerChoice} />
+                        </div>
                     </div>
+                    <h2 className="font-600">you picked</h2>
                 </div>
-                <h2 className="font-600">you picked</h2>
-            </div>
-            <div className="revealContainer_house">
-                <div
-                    className={reveal
-                        ? ` button revealButton button_${currentGameArr[housePick]}`
-                        : 'button revealButton revealButton_blank'} >
-                    <div>
-                        {reveal &&
-                            <img src={`/assets/images/icon-${currentGameArr[housePick]}.svg`} alt={currentGameArr[housePick]} />
-                        }
+            </CSSTransition>
+            <CSSTransition
+                in={reveal}
+                timeout={1000}
+                classNames='revealContainer_houseAnimate'
+                nodeRef={houseRef}
+            >
+                <div ref={houseRef} className="revealContainer_house">
+                    <div
+                        className={reveal
+                            ? ` button revealButton button_${currentGameArr[housePick]}`
+                            : 'button revealButton revealButton_blank'} >
+                        <div>
+                            {reveal &&
+                                <img src={`/assets/images/icon-${currentGameArr[housePick]}.svg`} alt={currentGameArr[housePick]} />
+                            }
+                        </div>
                     </div>
+                    <h2 className="font-600">the house picked</h2>
                 </div>
-                <h2 className="font-600">the house picked</h2>
-            </div>
+            </CSSTransition>
         </div >
     )
 

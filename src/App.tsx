@@ -35,6 +35,7 @@ function App() {
       background: gameModes[mode].background,
       original: gameModes[mode].original
     }
+    setChoice(undefined)
   }, [mode])
 
   useEffect(() => {
