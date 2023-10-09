@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react"
+import { CSSTransition } from 'react-transition-group'
 
-export default function Reveal({ currentGameArr, setChoice, setScore }: any) {
+export default function Reveal({ currentGameArr, setChoice, setScore, currentMode: { options } }: any) {
 
-    const [playerChoice, playerLoses, playerWins] = [...currentGameArr]
+    const [playerChoice] = [...currentGameArr]
     const [housePick, setHousePick] = useState<number>(0)
     const [reveal, setReveal] = useState<boolean>(false)
 
     useEffect(() => {
         setTimeout(() => {
             if (!housePick) {
-                setHousePick(Math.floor(Math.random() * 3))
+                setHousePick(Math.floor(Math.random() * options.length))
                 setReveal(true)
             }
             if (resultFunc() === 'win') {
@@ -18,14 +19,19 @@ export default function Reveal({ currentGameArr, setChoice, setScore }: any) {
         }, 1000);
     }, [housePick])
 
+
     return (
         <div className={reveal ? "revealContainer revealed" : "revealContainer"}>
-            {reveal &&
+            <CSSTransition
+                in={reveal}
+                timeout={1000}
+                classNames='revealContainer_animate'
+            >
                 <div className="revealContainer_result">
                     <p className="font-700">{`you ${resultFunc()}`}</p>
                     <button className="font-700" onClick={() => setChoice(undefined)}>play again</button>
                 </div >
-            }
+            </CSSTransition>
             <div className="revealContainer_player">
                 <div className={` button revealButton button_${playerChoice}`} >
                     <div>
@@ -51,11 +57,11 @@ export default function Reveal({ currentGameArr, setChoice, setScore }: any) {
     )
 
     function resultFunc(): string {
-        if (currentGameArr[housePick] === playerChoice) {
+        if (housePick === 0) {
             return 'draw'
-        } else if (currentGameArr[housePick] === playerLoses) {
+        } else if (housePick % 2 === 1) {
             return 'lose'
-        } else if (currentGameArr[housePick] === playerWins) {
+        } else if (housePick % 2 === 0) {
             return 'win'
         }
         return '';

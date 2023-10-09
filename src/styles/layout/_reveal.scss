@@ -114,6 +114,19 @@
             margin-block: 0 4rem;
         }
     }
+
+    &_animate {
+        background-color: blue;
+    }
+
+    &_animate-enter {
+        background-color: red;
+    }
+
+    &_animate-enter-active {
+        background-color: pink;
+        transition: background-color 1000ms;
+    }
 }
 
 .revealButton {
@@ -134,10 +147,12 @@
 
         }
     }
+
 }
 
 .revealed {
     @include dt {
         grid-template-columns: 1fr auto 1fr;
     }
+
 }

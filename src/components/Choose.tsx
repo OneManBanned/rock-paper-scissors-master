@@ -1,6 +1,8 @@
 export default function Choose({ setChoice, currentMode: { background, options, original } }: any) {
     return (
-        <div className="chooseContainer">
+        <div className={original
+            ? 'chooseContainer chooseContainer_original'
+            : 'chooseContainer chooseContainer_bonus'}>
             <img className="chooseContainer_bg" src={background} alt="" />
             {options.map((option: string, index: number) => {
                 return <button

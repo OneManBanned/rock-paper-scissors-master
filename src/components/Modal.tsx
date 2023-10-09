@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function Modal({ openModal, closeModal, rulesImg }: any) {
+export default function Modal({ openModal, closeModal, currentMode: { rules, rulesAlt } }: any) {
 
     const ref: any = useRef();
 
@@ -17,7 +17,7 @@ export default function Modal({ openModal, closeModal, rulesImg }: any) {
             <div className="rulesModal">
                 <h2 className="rulesModal_header font-700">rules</h2>
                 <button className="rulesModal_close" aria-label="close modal" onClick={closeModal}></button>
-                <img className="rulesModal_img" src={rulesImg} alt="rock beats scissors, scissors beats paper, paper beats rock" />
+                <img className="rulesModal_img" src={rules} alt={rulesAlt} />
             </div>
         </dialog>
     )

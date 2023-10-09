@@ -14,15 +14,14 @@
     border-radius: .5rem;
 
     @include dt {
-        padding: 1.5rem;
+        padding: 1.25rem 1.5rem .75rem 1.5rem;
         border-radius: 1rem;
-        margin-block-start: 3rem;
+        margin-block-start: 2.75rem;
     }
 
     &_name {
         margin-inline-start: .5rem;
 
-        @include dt {}
     }
 
     &_scoreBoard {
@@ -38,6 +37,7 @@
 
         @include dt {
             border-radius: .5rem;
+            margin-block: -.25rem .25rem;
         }
 
         &_name {

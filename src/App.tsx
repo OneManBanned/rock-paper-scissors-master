@@ -20,6 +20,7 @@ function App() {
   let currentMode: Mode = {
     options: gameModes[mode].options,
     rules: gameModes[mode].rules,
+    rulesAlt: gameModes[mode].rulesAlt,
     title: gameModes[mode].title,
     background: gameModes[mode].background,
     original: gameModes[mode].original
@@ -29,13 +30,12 @@ function App() {
     currentMode = {
       options: gameModes[mode].options,
       rules: gameModes[mode].rules,
+      rulesAlt: gameModes[mode].rulesAlt,
       title: gameModes[mode].title,
       background: gameModes[mode].background,
       original: gameModes[mode].original
     }
   }, [mode])
-
-
 
   useEffect(() => {
     let { options } = currentMode
@@ -51,30 +51,18 @@ function App() {
     <>
       <main>
         {/* Header with Score */}
-        <Header scoreState={score} currentMode={currentMode} title={currentMode.title} altText={currentMode.options} />
+        <Header scoreState={score} currentMode={currentMode} />
 
         {/* Main game logic */}
         {!choice
-          ? <Choose
-            setChoice={setChoice}
-            choice={choice}
-            currentMode={currentMode}
+          ? <Choose setChoice={setChoice} choice={choice} currentMode={currentMode}
           />
-          : <Reveal
-            currentGameArr={currentGameArr}
-            setScore={setScore}
-            setChoice={setChoice} />
+          : <Reveal currentMode={currentMode} currentGameArr={currentGameArr} setScore={setScore} setChoice={setChoice} />
         }
 
-        <Buttons
-          setMode={setMode}
-          mode={mode}
-          setModal={setModal} />
-        <Modal
-          rulesImg={currentMode.rules}
-          openModal={modal}
-          closeModal={() => setModal(false)}
-        />
+        <Buttons setMode={setMode} mode={mode} setModal={setModal} />
+
+        <Modal currentMode={currentMode} openModal={modal} closeModal={() => setModal(false)} />
 
       </main>
     </>

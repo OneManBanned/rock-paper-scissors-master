@@ -12,6 +12,12 @@
         max-width: 18rem;
     }
 
+    &_original {
+        @include dt {
+            margin-top: 9rem;
+        }
+    }
+
     &_bg {
         width: 100%;
         aspect-ratio: 1;
@@ -23,7 +29,7 @@
     position: absolute;
 
     &:hover {
-        width: 53%;
+        width: 52%;
     }
 
     &_rock {
