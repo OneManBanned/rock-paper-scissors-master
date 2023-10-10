@@ -7,6 +7,11 @@ export interface Mode {
     original: boolean;
 }
 
+export interface Item {
+    name: string,
+    nodeRef: any
+}
+
 export let original: Mode = {
     options: ['rock', 'paper', 'scissors'],
     rules: '/assets/images/image-rules.svg',

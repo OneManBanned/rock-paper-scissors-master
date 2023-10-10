@@ -22,6 +22,33 @@
         width: 100%;
         aspect-ratio: 1;
     }
+
+    &_pick-enter {
+        opacity: 0;
+        background-color: pink;
+    }
+
+    &_pick-enter-active {
+        opacity: 1;
+        transition: opacity 1000ms;
+        background-color: red;
+    }
+
+    &_pick-appear {
+        opacity: 0;
+        background-color: pink;
+    }
+
+    &_pick-active-appear {
+        opacity: 0;
+        background-color: blue;
+    }
+
+    &_pick-done-appear {
+        opacity: 1;
+        transition: opacity 1000ms;
+        background-color: orange;
+    }
 }
 
 .bonusButton {
