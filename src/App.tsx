@@ -56,7 +56,7 @@ function App() {
 
         {/* Main game logic */}
         {!choice
-          ? <Choose setChoice={setChoice} currentMode={currentMode}
+          ? <Choose choice={choice} setChoice={setChoice} mode={mode} currentMode={currentMode}
           />
           : <Reveal currentMode={currentMode} currentGameArr={currentGameArr} setScore={setScore} setChoice={setChoice} />
         }

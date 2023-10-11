@@ -77,4 +77,22 @@ dialog {
             grid-column: 2/3;
         }
     }
+
+    &_modalAnimate-enter {
+        transform: translateY(-100%);
+    }
+
+    &_modalAnimate-enter-active {
+        transform: translateY(0%);
+        transition: transform 500ms;
+    }
+
+    &_modalAnimate-exit {
+        transform: translateY(0%);
+    }
+
+    &_modalAnimate-exit-active {
+        transform: translateY(-150%);
+        transition: transform 500ms;
+    }
 }

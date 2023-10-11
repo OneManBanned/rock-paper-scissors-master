@@ -23,32 +23,50 @@
         aspect-ratio: 1;
     }
 
-    &_pick-enter {
+    // Appear
+    &_load-appear {
         opacity: 0;
-        background-color: pink;
     }
 
-    &_pick-enter-active {
+    &_load-appear-active {
         opacity: 1;
         transition: opacity 1000ms;
-        background-color: red;
     }
 
-    &_pick-appear {
+    &_load-appear-done {
+        opacity: 1;
+    }
+
+    // enter
+    // &_load-enter {
+    //     opacity: 0;
+    // }
+
+    // &_load-enter-active {
+    //     opacity: 1;
+    //     transition: opacity 1000ms;
+    // }
+
+    // &_load-enter-done {
+    //     opacity: 1;
+    // }
+
+    // exit
+    &_load-exit {
         opacity: 0;
-        background-color: pink;
     }
 
-    &_pick-active-appear {
-        opacity: 0;
-        background-color: blue;
-    }
-
-    &_pick-done-appear {
+    &_load-exit-active {
         opacity: 1;
         transition: opacity 1000ms;
-        background-color: orange;
     }
+
+    &_load-exit-done {
+        opacity: 1;
+    }
+
+    // pick animations
+
 }
 
 .bonusButton {
@@ -57,6 +75,7 @@
 
     &:hover {
         width: 52%;
+        transition: width 500ms ease-in-out;
     }
 
     &_rock {
@@ -103,6 +122,7 @@
 
     &:hover {
         width: 73%;
+        transition: width 500ms ease-in-out;
     }
 
     &_rock {
@@ -125,7 +145,26 @@
         transform: translatex(50%) translatey(-50%);
     }
 
+
     &:hover {
         cursor: pointer;
     }
+}
+
+
+
+.lizardAnimate-enter,
+.spockAnimate-enter {
+    opacity: 0;
+}
+
+.lizardAnimate-enter-active,
+.spockAnimate-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms;
+}
+
+.lizardAnimate-exit,
+.spockAnimate-exit {
+    opacity: 0;
 }
