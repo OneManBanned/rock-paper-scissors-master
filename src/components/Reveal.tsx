@@ -45,10 +45,22 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                 classNames='revealContainer_playerAnimate'
                 nodeRef={playerRef}
             >
-                <div ref={playerRef} className="revealContainer_player">
-                    <div className={` button revealButton button_${playerChoice}`} >
+                <div ref={playerRef} className={"revealContainer_player"}>
+                    <div className={`button button_${playerChoice} revealButton`}>
                         <div>
                             <img src={`/assets/images/icon-${playerChoice}.svg`} alt={playerChoice} />
+                            <div className={resultFunc() === 'win'
+                                ? "shadowDivOne shadowDivOne-winner"
+                                : "shadowDivOne"}>
+                            </div>
+                            <div className={resultFunc() === 'win'
+                                ? "shadowDivTwo shadowDivTwo-winner"
+                                : "shadowDivTwo"}>
+                            </div>
+                            <div className={resultFunc() === 'win'
+                                ? "shadowDivThree shadowDivThree-winner"
+                                : "shadowDivThree"}>
+                            </div>
                         </div>
                     </div>
                     <h2 className="font-600">you picked</h2>

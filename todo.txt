@@ -1,0 +1,7 @@
+win button animation
+
+close modal with click outside.
+
+Mode button txt
+
+----

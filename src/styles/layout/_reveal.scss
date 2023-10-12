@@ -84,6 +84,7 @@
         flex-direction: column;
         align-items: center;
         flex-basis: 40%;
+        position: relative;
 
         @include dt {
             flex-direction: column-reverse;
@@ -102,7 +103,6 @@
             grid-column: 3/4;
             flex-direction: column-reverse;
             align-items: center;
-
         }
     }
 
@@ -151,6 +151,9 @@
         transform: translatex(0%);
         transition: transform 1000ms;
     }
+
+
+
 }
 
 .revealButton {
@@ -176,5 +179,59 @@
 .revealed {
     @include dt {
         grid-template-columns: 1fr auto 1fr;
+    }
+}
+
+.shadowDivOne {
+    position: absolute;
+    border-radius: 50%;
+    width: 50%;
+    aspect-ratio: 1;
+    z-index: -1;
+    background: hsla(220, 47%, 23%, .25);
+}
+
+.shadowDivOne-winner {
+    width: 199%;
+    transition: width 1000ms ease 1000ms;
+
+    @include dt {
+        width: 160%;
+    }
+}
+
+.shadowDivTwo {
+    position: absolute;
+    border-radius: 50%;
+    width: 50%;
+    aspect-ratio: 1;
+    z-index: -1;
+    background: hsla(220, 47%, 23%, .5);
+}
+
+.shadowDivTwo-winner {
+    width: 199%;
+    transition: width 1000ms ease 1000ms;
+
+    @include dt {
+        width: 125%;
+    }
+}
+
+.shadowDivThree {
+    position: absolute;
+    border-radius: 50%;
+    width: 50%;
+    aspect-ratio: 1;
+    z-index: -1;
+    background: hsl(220, 47%, 23%);
+}
+
+.shadowDivThree-winner {
+    width: 199%;
+    transition: width 1000ms ease 1000ms;
+
+    @include dt {
+        width: 95%;
     }
 }

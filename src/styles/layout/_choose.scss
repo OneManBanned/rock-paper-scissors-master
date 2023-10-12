@@ -73,11 +73,6 @@
     width: 50%;
     position: absolute;
 
-    &:hover {
-        width: 52%;
-        transition: width 500ms ease-in-out;
-    }
-
     &_rock {
         bottom: 0;
         right: 0;
@@ -120,10 +115,6 @@
     position: absolute;
     transition: width .5s ease;
 
-    &:hover {
-        width: 73%;
-        transition: width 500ms ease-in-out;
-    }
 
     &_rock {
         transform: translateY(18%);
@@ -144,7 +135,6 @@
         right: 0;
         transform: translatex(50%) translatey(-50%);
     }
-
 
     &:hover {
         cursor: pointer;

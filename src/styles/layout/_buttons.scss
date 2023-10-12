@@ -23,6 +23,13 @@
     color: white;
     letter-spacing: .15rem;
     cursor: pointer;
+
+    @include dt {
+        &:hover {
+            transform: translateY(-10%);
+            transition: transform 200ms ease-in-out;
+        }
+    }
 }
 
 .game_btn {

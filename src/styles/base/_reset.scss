@@ -21,6 +21,7 @@ main {
     margin-inline: auto;
     min-height: 100vh;
     max-width: 82.5rem;
+    overflow: hidden;
 
     @include dt {
         min-height: unset;
