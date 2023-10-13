@@ -1,3 +1,4 @@
+import VictoryShadow from "./VictoryShadow"
 import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from 'react-transition-group'
 
@@ -23,7 +24,6 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
         }, 1000);
     }, [housePick])
 
-
     return (
         <div className={reveal ? "revealContainer revealed" : "revealContainer"}>
             <CSSTransition
@@ -43,24 +43,12 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                 in={reveal}
                 timeout={1000}
                 classNames='revealContainer_playerAnimate'
-                nodeRef={playerRef}
-            >
+                nodeRef={playerRef} >
                 <div ref={playerRef} className={"revealContainer_player"}>
                     <div className={`button button_${playerChoice} revealButton`}>
                         <div>
                             <img src={`/assets/images/icon-${playerChoice}.svg`} alt={playerChoice} />
-                            <div className={resultFunc() === 'win'
-                                ? "shadowDivOne shadowDivOne-winner"
-                                : "shadowDivOne"}>
-                            </div>
-                            <div className={resultFunc() === 'win'
-                                ? "shadowDivTwo shadowDivTwo-winner"
-                                : "shadowDivTwo"}>
-                            </div>
-                            <div className={resultFunc() === 'win'
-                                ? "shadowDivThree shadowDivThree-winner"
-                                : "shadowDivThree"}>
-                            </div>
+                            {resultFunc() === 'win' && <VictoryShadow />}
                         </div>
                     </div>
                     <h2 className="font-600">you picked</h2>
@@ -70,18 +58,18 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                 in={reveal}
                 timeout={1000}
                 classNames='revealContainer_houseAnimate'
-                nodeRef={houseRef}
-            >
+                nodeRef={houseRef} >
                 <div ref={houseRef} className="revealContainer_house">
                     <div
                         className={reveal
                             ? ` button revealButton button_${currentGameArr[housePick]}`
                             : 'button revealButton revealButton_blank'} >
-                        <div>
-                            {reveal &&
+                        {reveal &&
+                            <div>
                                 <img src={`/assets/images/icon-${currentGameArr[housePick]}.svg`} alt={currentGameArr[housePick]} />
-                            }
-                        </div>
+                                {resultFunc() === 'lose' && <VictoryShadow />}
+                            </div>
+                        }
                     </div>
                     <h2 className="font-600">the house picked</h2>
                 </div>
