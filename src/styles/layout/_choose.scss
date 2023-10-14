@@ -126,19 +126,3 @@
         cursor: pointer;
     }
 }
-
-.lizardAnimate-enter,
-.spockAnimate-enter {
-    opacity: 0;
-}
-
-.lizardAnimate-enter-active,
-.spockAnimate-enter-active {
-    opacity: 1;
-    transition: opacity 1000ms;
-}
-
-.lizardAnimate-exit,
-.spockAnimate-exit {
-    opacity: 0;
-}

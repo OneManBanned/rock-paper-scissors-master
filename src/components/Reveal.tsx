@@ -1,8 +1,10 @@
 import VictoryShadow from "./VictoryShadow"
 import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from 'react-transition-group'
+import { Mode } from "../data"
 
-export default function Reveal({ currentGameArr, setChoice, setScore, currentMode: { options } }: any) {
+export default function Reveal({ currentGameArr, setChoice, setScore, currentMode: { options } }:
+    { currentGameArr: string[], setChoice: any, setScore: any, currentMode: Mode }) {
 
     const [playerChoice] = [...currentGameArr]
     const [housePick, setHousePick] = useState<number>(0)

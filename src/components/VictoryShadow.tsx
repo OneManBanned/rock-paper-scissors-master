@@ -4,7 +4,11 @@ import { Item } from '../data'
 
 export default function VictoryShadow() {
 
-    const divArray: Item[] = [{ name: 'One', nodeRef: createRef() }, { name: 'Two', nodeRef: createRef() }, { name: 'Three', nodeRef: createRef() }]
+    const divArray: Item[] = [
+        { name: 'One', nodeRef: createRef() },
+        { name: 'Two', nodeRef: createRef() },
+        { name: 'Three', nodeRef: createRef() }
+    ]
 
     return (<>
         <TransitionGroup className='shadowGroup'>

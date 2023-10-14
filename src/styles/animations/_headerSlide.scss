@@ -1,0 +1,72 @@
+.animateHeader-enter-done {
+    transform: translateY(0%);
+}
+
+.animateHeader-exit {
+    opacity: 1;
+}
+
+.animateHeader-exit-done {
+    opacity: 0;
+}
+
+.animateHeader-enter-done {
+    transform: translateY(0%);
+}
+
+.animateHeader-exit-active {
+    opacity: 0;
+    transition: opacity 400ms,
+}
+
+.animateHeader-enter {
+    transform: translateY(-50vh);
+}
+
+.animateHeader-enter-active {
+    transform: translateY(0%);
+    transition: transform 400ms;
+}
+
+.stateAnimate-exit {
+    background-color: pink;
+}
+
+.stateAnimate-exit-active {
+    background-color: red;
+    transition: background-color 1000ms;
+}
+
+.stateAnimate-exit-done {
+    background-color: red;
+}
+
+.animateSelect-enter {
+    transform: translateX(0%);
+}
+
+.animateSelect-enter-active {
+    transform: translateX(50%);
+    transition: transform 1000ms;
+}
+
+.animateSelect-enter-done {
+    transform: translateX(50%);
+}
+
+.animateFade-enter {
+    opacity: 1;
+}
+
+.animateFade-enter-active {
+    opacity: 0;
+    transition: opacity 1000ms;
+}
+
+.animateFade-enter-done {
+    opacity: 0;
+}
+
+.options-list {
+    background-color: orange;
+}
