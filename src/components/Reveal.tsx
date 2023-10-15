@@ -49,7 +49,6 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                 <div ref={playerRef} className={"revealContainer_player"}>
                     <div className={`button button_${playerChoice} revealButton`}>
                         <div>
-                            <img src={`/assets/images/icon-${playerChoice}.svg`} alt={playerChoice} />
                             {resultFunc() === 'win' && <VictoryShadow />}
                         </div>
                     </div>
@@ -68,7 +67,6 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                             : 'button revealButton revealButton_blank'} >
                         {reveal &&
                             <div>
-                                <img src={`/assets/images/icon-${currentGameArr[housePick]}.svg`} alt={currentGameArr[housePick]} />
                                 {resultFunc() === 'lose' && <VictoryShadow />}
                             </div>
                         }

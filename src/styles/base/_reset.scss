@@ -19,9 +19,10 @@ main {
     flex-direction: column;
     align-items: center;
     margin-inline: auto;
-    min-height: 100vh;
+    justify-content: space-between;
     max-width: 82.5rem;
     overflow: hidden;
+    height: 100vh;
 
     @include dt {
         min-height: unset;

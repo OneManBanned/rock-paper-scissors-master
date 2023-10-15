@@ -2,20 +2,19 @@
 @use '../abstracts/colors' as *;
 
 .revealContainer {
-    width: 85%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     gap: 20%;
-    margin-top: 10vh;
 
     @include dt {
         display: grid;
         grid-template-columns: 35% 0fr 35%;
         grid-template-rows: 1fr;
         gap: 0;
-        margin-top: 2.5rem;
     }
 
     &_result {

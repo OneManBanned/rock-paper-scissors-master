@@ -7,18 +7,17 @@ export default function Choose(
         { choice: string; setChoice: any; mode: number }) {
 
     const [isEnter, setIsEnter] = useState<boolean>(mode === 0 ? true : false)
-    const [animateSelect, setAnimateSelet] = useState<boolean>(false)
+    const [animateSelect, setAnimateSelect] = useState<boolean>(false)
 
     const originalRef = useRef(null)
     const bonusRef = useRef(null)
-
     const nodeRef = isEnter ? originalRef : bonusRef;
+
     const currentArr = isEnter ? original.options : bonus.options
     const currentBackground = isEnter ? original.background : bonus.background
-    console.log(choice)
 
     useEffect(() => {
-        choice ? setAnimateSelet(true) : setAnimateSelet(false)
+        choice ? setAnimateSelect(true) : setAnimateSelect(false)
     }, [choice])
 
     useEffect(() => {
@@ -27,10 +26,7 @@ export default function Choose(
 
     const optionsArr: Item[] = []
     currentArr.forEach(option => {
-        const nextItem: Item = {
-            name: option,
-            nodeRef: createRef()
-        }
+        const nextItem: Item = { name: option, nodeRef: createRef() }
         optionsArr.push(nextItem)
     })
 
@@ -41,8 +37,7 @@ export default function Choose(
                 timeout={500}
                 appear={true}
                 nodeRef={nodeRef}
-                classNames={'animateChoose'}
-            >
+                classNames={'animateChoose'} >
                 <div
                     ref={nodeRef}
                     className={isEnter
@@ -50,26 +45,23 @@ export default function Choose(
                         : 'chooseContainer chooseContainer_bonus'}>
                     <img className="chooseContainer_bg" src={currentBackground} alt="" />
                     {optionsArr.map(({ name, nodeRef }, index) => {
-                        console.log(animateSelect)
                         return (
                             <CSSTransition
                                 key={index}
                                 in={animateSelect}
                                 nodeRef={nodeRef}
-                                timeout={1000}
+                                timeout={2000}
                                 appear
-                                classNames={name === choice ? `animateSelect` : 'animateFade'}
-                            >
-                                <div ref={nodeRef}>
-                                    <button
-                                        className={isEnter
-                                            ? `button originalButton originalButton_${name} button_${name}`
-                                            : `button bonusButton bonusButton_${name} button_${name}`}
-                                        onClick={() => setChoice(name)}> <div>
-                                            <img src={`/assets/images/icon-${name}.svg`} alt={name} />
-                                        </div>
-                                    </button>
-                                </div>
+                                addEndListener={() => { console.dir(nodeRef.current) }}
+                                classNames={name === choice ? `animateSelect` : 'animateFade'} >
+                                <button
+                                    ref={nodeRef}
+                                    className={isEnter
+                                        ? `button originalButton originalButton_${name} button_${name}`
+                                        : `button bonusButton bonusButton_${name} button_${name}`}
+                                    onClick={() => setChoice(name)}>
+                                </button>
+
                             </CSSTransition>
                         )
                     }

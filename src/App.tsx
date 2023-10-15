@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, } from "react"
+import Header from './components/Header'
+import GameGrid from './components/GameGrid'
 import Modal from './components/Modal'
 import Buttons from "./components/Buttons"
-import Reveal from './components/Reveal'
-import Header from './components/Header'
-import Choose from "./components/Choose"
 import '../dist/css/index.css'
-import { original, bonus, Mode } from './data.tsx'
-import { CSSTransition, SwitchTransition } from "react-transition-group"
+import { original, bonus } from './data.tsx'
 
 function App() {
 
@@ -17,30 +15,11 @@ function App() {
   const [choice, setChoice] = useState<any>(undefined)
   const [currentGameArr, setCurrentGameArr] = useState<string[]>([])
   const [mode, setMode] = useState<number>(0)
-  const [isSelected, setIsSelected] = useState<boolean>(false)
 
-  const nodeRef = useRef(null)
-
-  let currentMode: Mode = {
-    options: gameModes[mode].options,
-    rules: gameModes[mode].rules,
-    rulesAlt: gameModes[mode].rulesAlt,
-    background: gameModes[mode].background,
-    original: gameModes[mode].original
-  }
+  let currentMode = gameModes[mode]
 
   useEffect(() => {
-    choice ? setIsSelected(true) : setIsSelected(false)
-  }, [choice])
-
-  useEffect(() => {
-    currentMode = {
-      options: gameModes[mode].options,
-      rules: gameModes[mode].rules,
-      rulesAlt: gameModes[mode].rulesAlt,
-      background: gameModes[mode].background,
-      original: gameModes[mode].original
-    }
+    currentMode = gameModes[mode]
     setChoice(undefined)
   }, [mode])
 
@@ -55,32 +34,32 @@ function App() {
   }, [choice])
 
   return (
-    <>
-      <main>
-        {/* Header with Score */}
-        <Header scoreState={score} mode={mode} currentMode={currentMode} />
+    <main>
 
-        {/* Main game logic */}
-        <SwitchTransition mode={'out-in'}>
-          <CSSTransition
-            key={isSelected}
-            timeout={1000}
-            classNames='stateAnimate'
-            nodeRef={nodeRef} >
-            <div ref={nodeRef}>{!isSelected
-              ? <Choose choice={choice} setChoice={setChoice} mode={mode}
-              />
-              : <Reveal currentMode={currentMode} currentGameArr={currentGameArr} setScore={setScore} setChoice={setChoice} />
-            } </div>
-          </CSSTransition>
-        </SwitchTransition>
+      <Header
+        scoreState={score}
+        mode={mode}
+        currentMode={currentMode} />
 
-        <Buttons setMode={setMode} mode={mode} setModal={setModal} />
+      <GameGrid
+        mode={mode}
+        choice={choice}
+        setChoice={setChoice}
+        currentMode={currentMode}
+        currentGameArr={currentGameArr}
+        setScore={setScore} />
 
-        <Modal currentMode={currentMode} openModal={modal} closeModal={() => setModal(false)} />
+      <Buttons
+        setMode={setMode}
+        mode={mode}
+        setModal={setModal} />
 
-      </main>
-    </>
+      <Modal
+        currentMode={currentMode}
+        openModal={modal}
+        closeModal={() => setModal(false)} />
+
+    </main>
   )
 }
 

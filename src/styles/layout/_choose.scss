@@ -3,24 +3,15 @@
 
 .chooseContainer {
     position: relative;
-    max-width: 15rem;
-    width: 50%;
-    margin-block-start: auto;
-
-    @include dt {
-        width: 50vw;
-        max-width: 18rem;
-    }
-
-    &_original {
-        @include dt {
-            margin-top: 9rem;
-        }
-    }
+    display: grid;
+    place-content: center;
 
     &_bg {
-        width: 100%;
-        aspect-ratio: 1;
+        width: 40vw;
+
+        @include dt {
+            width: 100%;
+        }
     }
 
     // Appear
@@ -50,14 +41,15 @@
     &_load-exit-done {
         opacity: 1;
     }
-
-    // pick animations
-
 }
 
 .bonusButton {
-    width: 50%;
     position: absolute;
+    width: 70%;
+
+    @include dt {
+        width: 45%;
+    }
 
     &_rock {
         bottom: 0;
@@ -70,7 +62,6 @@
         left: 0;
         transform: translateY(50%) translateX(-20%);
     }
-
 
     &_scissors {
         top: 0;
@@ -97,13 +88,15 @@
 }
 
 .originalButton {
-    width: 71%;
     position: absolute;
-    transition: width .5s ease;
+    width: 50%;
 
+    @include dt {
+        width: 62%;
+    }
 
     &_rock {
-        transform: translateY(18%);
+        // transform: translateY(25%);
         bottom: 0;
         left: 0;
         right: 0;
@@ -113,13 +106,11 @@
     &_paper {
         top: 0;
         left: 0;
-        transform: translateX(-50%) translateY(-50%);
     }
 
     &_scissors {
         top: 0;
         right: 0;
-        transform: translatex(50%) translatey(-50%);
     }
 
     &:hover {
