@@ -21,7 +21,7 @@ export default function GameGrid(
         <SwitchTransition mode={'out-in'}>
             <CSSTransition
                 key={isSelected}
-                timeout={2000}
+                timeout={1000}
                 classNames='stateAnimate'
                 nodeRef={nodeRef} >
                 <div ref={nodeRef} className='gameGridContainer'>{

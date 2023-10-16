@@ -4,11 +4,17 @@
     position: absolute;
     z-index: -1;
     border-radius: 50%;
+    margin-inline: auto;
     aspect-ratio: 1;
+    left: -5rem;
+    top: -4.75rem;
+    // background-color: yellow;
     width: 225%;
 
     @include dt {
-        width: 160%;
+        left: -14rem;
+        top: -8rem;
+        width: 250%;
     }
 }
 
@@ -57,7 +63,6 @@
     position: absolute;
     border-radius: 50%;
     aspect-ratio: 1;
-    width: 100%;
     top: 0;
     bottom: 0;
     left: 0;

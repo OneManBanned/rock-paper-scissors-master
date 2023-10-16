@@ -31,7 +31,7 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
             <CSSTransition
                 in={reveal}
                 timeout={1000}
-                classNames='revealContainer_animate'
+                classNames='animate'
                 nodeRef={resultRef} >
                 <div ref={resultRef}
                     className={reveal
@@ -44,7 +44,7 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
             <CSSTransition
                 in={reveal}
                 timeout={1000}
-                classNames='revealContainer_playerAnimate'
+                classNames='playerAnimate'
                 nodeRef={playerRef} >
                 <div ref={playerRef} className={"revealContainer_player"}>
                     <div className={`button button_${playerChoice} revealButton`}>
@@ -58,12 +58,12 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
             <CSSTransition
                 in={reveal}
                 timeout={1000}
-                classNames='revealContainer_houseAnimate'
+                classNames='houseAnimate'
                 nodeRef={houseRef} >
                 <div ref={houseRef} className="revealContainer_house">
                     <div
                         className={reveal
-                            ? ` button revealButton button_${currentGameArr[housePick]}`
+                            ? `button revealButton button_${currentGameArr[housePick]}`
                             : 'button revealButton revealButton_blank'} >
                         {reveal &&
                             <div>

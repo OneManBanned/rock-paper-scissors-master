@@ -3,83 +3,94 @@
 
 .chooseContainer {
     position: relative;
-    display: grid;
-    place-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_original {
+        font-size: .65rem;
+
+        @include dt {
+            font-size: 1rem;
+        }
+    }
+
+    &_bonus {
+        font-size: .55rem;
+
+        @include dt {
+            font-size: .75rem;
+        }
+    }
 
     &_bg {
-        width: 40vw;
+        width: 75%;
 
         @include dt {
             width: 100%;
         }
     }
-
-    // Appear
-    &_load-appear {
-        opacity: 0;
-    }
-
-    &_load-appear-active {
-        opacity: 1;
-        transition: opacity 1000ms;
-    }
-
-    &_load-appear-done {
-        opacity: 1;
-    }
-
-    // exit
-    &_load-exit {
-        opacity: 0;
-    }
-
-    &_load-exit-active {
-        opacity: 1;
-        transition: opacity 1000ms;
-    }
-
-    &_load-exit-done {
-        opacity: 1;
-    }
 }
 
 .bonusButton {
     position: absolute;
-    width: 70%;
+    width: 40%;
+    max-width: 6rem;
 
     @include dt {
-        width: 45%;
+        width: 42.75%;
+        max-width: unset;
     }
 
     &_rock {
-        bottom: 0;
-        right: 0;
-        transform: translateY(50%) translateX(20%);
+        right: 3.15rem;
+        bottom: -2.85rem;
+
+        @include dt {
+            right: -1rem;
+            bottom: -3.7rem;
+        }
     }
 
     &_lizard {
-        bottom: 0;
-        left: 0;
-        transform: translateY(50%) translateX(-20%);
+        bottom: -2.85rem;
+        left: 2.75rem;
+
+        @include dt {
+            left: .7rem;
+            bottom: -3.7rem;
+        }
     }
 
     &_scissors {
-        top: 0;
+        top: -2.5rem;
         right: 0;
         left: 0;
         margin-inline: auto;
-        transform: translateY(-50%);
+
+        @include dt {
+            top: -5rem;
+            right: -1.5rem;
+        }
     }
 
     &_paper {
+        top: 3.25rem;
         right: 0;
-        top: 0;
-        transform: translateY(30%) translateX(60%);
+
+        @include dt {
+            right: -5rem;
+        }
     }
 
     &_spock {
-        top: 0;
-        transform: translateY(30%) translateX(-60%);
+        top: 3.25rem;
+        left: 0;
+
+        @include dt {
+            top: 2.8rem;
+            left: -3.5rem;
+        }
     }
 
     &:hover {
@@ -89,28 +100,41 @@
 
 .originalButton {
     position: absolute;
-    width: 50%;
+    width: 38%;
 
     @include dt {
         width: 62%;
     }
 
     &_rock {
-        // transform: translateY(25%);
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin-inline: auto;
+        bottom: -1rem;
+
+        @include dt {
+            bottom: -5rem;
+            left: 0;
+            right: 0;
+            margin-inline: auto;
+        }
     }
 
     &_paper {
-        top: 0;
-        left: 0;
+        top: -3rem;
+        left: 1rem;
+
+        @include dt {
+            top: -5rem;
+            left: -5rem;
+        }
     }
 
     &_scissors {
-        top: 0;
-        right: 0;
+        top: -3rem;
+        right: 1rem;
+
+        @include dt {
+            top: -5rem;
+            right: -5rem;
+        }
     }
 
     &:hover {

@@ -50,18 +50,15 @@ export default function Choose(
                                 key={index}
                                 in={animateSelect}
                                 nodeRef={nodeRef}
-                                timeout={2000}
+                                timeout={1000}
                                 appear
-                                addEndListener={() => { console.dir(nodeRef.current) }}
+                                onEntering={() => { console.dir(nodeRef.current) }}
                                 classNames={name === choice ? `animateSelect` : 'animateFade'} >
-                                <button
-                                    ref={nodeRef}
-                                    className={isEnter
-                                        ? `button originalButton originalButton_${name} button_${name}`
-                                        : `button bonusButton bonusButton_${name} button_${name}`}
+                                <button ref={nodeRef} className={isEnter
+                                    ? `button originalButton originalButton_${name} button_${name}`
+                                    : `button bonusButton bonusButton_${name} button_${name}`}
                                     onClick={() => setChoice(name)}>
                                 </button>
-
                             </CSSTransition>
                         )
                     }
