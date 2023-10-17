@@ -4,4 +4,10 @@ close modal with click outside.
 
 Mode button txt
 
+outline styling
+
+accessibility considerations
+
+animation on mobile reveal
+
 ----

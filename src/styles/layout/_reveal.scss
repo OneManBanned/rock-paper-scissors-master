@@ -7,6 +7,7 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     gap: 20%;
+    /*font-size controls box shadows of option buttons*/
     font-size: .7rem;
 
     @include dt {
@@ -47,7 +48,7 @@
             border-radius: .75rem;
             border: none;
             text-transform: uppercase;
-            margin-block-end: 1rem;
+            margin-block-end: 5rem;
             font-size: clamp(0.65rem, 0.3457rem + 2.4348vw, 1rem);
             letter-spacing: .1rem;
             color: $dark-text;
@@ -59,6 +60,7 @@
             @include dt {
                 font-size: clamp(0.75rem, 0.6067rem + 0.5333vw, 1rem);
                 padding: 1rem 0;
+                margin-block-end: 1rem;
                 min-width: 100%;
             }
         }

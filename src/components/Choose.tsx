@@ -15,6 +15,7 @@ export default function Choose(
 
     const currentArr = isEnter ? original.options : bonus.options
     const currentBackground = isEnter ? original.background : bonus.background
+    const currentMode = isEnter ? 'original' : 'bonus'
 
     useEffect(() => {
         choice ? setAnimateSelect(true) : setAnimateSelect(false)
@@ -43,7 +44,13 @@ export default function Choose(
                     className={isEnter
                         ? 'chooseContainer chooseContainer_original'
                         : 'chooseContainer chooseContainer_bonus'}>
-                    <img className="chooseContainer_bg" src={currentBackground} alt="" />
+                    <CSSTransition
+                        in={animateSelect}
+                        timeout={1000}
+                        classNames='animateFade'
+                    >
+                        <img className="chooseContainer_bg" src={currentBackground} alt="" />
+                    </CSSTransition>
                     {optionsArr.map(({ name, nodeRef }, index) => {
                         return (
                             <CSSTransition
@@ -52,8 +59,9 @@ export default function Choose(
                                 nodeRef={nodeRef}
                                 timeout={1000}
                                 appear
-                                onEntering={() => { console.dir(nodeRef.current) }}
-                                classNames={name === choice ? `animateSelect` : 'animateFade'} >
+                                classNames={name === choice
+                                    ? `animateSelect-${currentMode}-${name} animateSelect-${currentMode}`
+                                    : 'animateFade'} >
                                 <button ref={nodeRef} className={isEnter
                                     ? `button originalButton originalButton_${name} button_${name}`
                                     : `button bonusButton bonusButton_${name} button_${name}`}

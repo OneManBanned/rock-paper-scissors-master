@@ -1,0 +1,106 @@
+@use '../abstracts/breakpoints' as *;
+@use '../abstracts/optionPositions' as *;
+
+// Original Desktop
+
+.animateSelect-original-rock-enter {
+    left: 0;
+    top: $rock-original-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-original-paper-enter {
+    left: 0;
+    top: $paper-original-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-original-scissors-enter {
+    left: 0;
+    top: $scissors-original-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-original-enter-active {
+    top: -3.75rem;
+    left: 0;
+    transform: scale(105%);
+    transition: left 1000ms, top 1000ms, transform 1000ms;
+
+    @include dt {
+        top: 5.75rem;
+        left: -10rem;
+        transform: scale(157%);
+        transition: left 1000ms, top 1000ms, transform 1000ms;
+    }
+}
+
+.animateSelect-original-enter-done {
+    top: -3.75rem;
+    left: 0;
+    transform: scale(105%);
+
+    @include dt {
+        top: 5.75rem;
+        left: -10rem;
+        transform: scale(157%);
+    }
+}
+
+// Bonus Desktop
+
+.animateSelect-bonus-rock-enter {
+    left: 0;
+    top: $rock-bonus-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-bonus-paper-enter {
+    left: 0;
+    top: $paper-bonus-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-bonus-scissors-enter {
+    left: 0;
+    top: $scissors-bonus-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-bonus-spock-enter {
+    left: 0;
+    top: $spock-bonus-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-bonus-lizard-enter {
+    left: 0;
+    top: $lizard-bonus-desktop;
+    transform: scale(100%);
+}
+
+.animateSelect-bonus-enter-active {
+    top: -2.5rem;
+    left: 1rem;
+    transform: scale(135%);
+    transition: left 1000ms, top 1000ms, transform 1000ms;
+
+    @include dt {
+        top: 8.75rem;
+        left: -8.25rem;
+        transform: scale(214%);
+        transition: left 1000ms, top 1000ms, transform 1000ms;
+    }
+}
+
+.animateSelect-bonus-enter-done {
+    top: -2.5rem;
+    left: 1rem;
+    transform: scale(135%);
+
+    @include dt {
+        top: 8.75rem;
+        left: -8.25rem;
+        transform: scale(214%);
+    }
+}

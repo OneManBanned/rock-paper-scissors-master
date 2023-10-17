@@ -1,5 +1,6 @@
 @use '../abstracts/breakpoints' as *;
 @use '../abstracts/colors' as *;
+@use '../abstracts/optionPositions' as *;
 
 .chooseContainer {
     position: relative;
@@ -8,10 +9,10 @@
     justify-content: center;
 
     &_original {
-        font-size: .65rem;
+        font-size: 70%;
 
         @include dt {
-            font-size: 1rem;
+            font-size: 100%;
         }
     }
 
@@ -32,6 +33,56 @@
     }
 }
 
+.originalButton {
+    position: absolute;
+    width: 38%;
+
+    @include dt {
+        width: 62%;
+    }
+
+    &_test {
+        position: absolute;
+        // width: 50%;
+        top: 3rem;
+        right: 3rem;
+    }
+
+    &_rock {
+        top: $rock-original-mobile;
+        left: 6rem;
+
+        @include dt {
+            top: $rock-original-desktop;
+            left: 3.5rem;
+        }
+    }
+
+    &_paper {
+        top: $paper-original-mobile;
+        left: 1rem;
+
+        @include dt {
+            top: $paper-original-desktop;
+            left: -5rem;
+        }
+    }
+
+    &_scissors {
+        top: $scissors-original-mobile;
+        left: 11.5rem;
+
+        @include dt {
+            top: $scissors-original-desktop;
+            left: 12rem;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .bonusButton {
     position: absolute;
     width: 40%;
@@ -43,97 +94,52 @@
     }
 
     &_rock {
-        right: 3.15rem;
-        bottom: -2.85rem;
+        top: $rock-bonus-mobile;
+        left: 11rem;
 
         @include dt {
-            right: -1rem;
-            bottom: -3.7rem;
-        }
-    }
-
-    &_lizard {
-        bottom: -2.85rem;
-        left: 2.75rem;
-
-        @include dt {
-            left: .7rem;
-            bottom: -3.7rem;
-        }
-    }
-
-    &_scissors {
-        top: -2.5rem;
-        right: 0;
-        left: 0;
-        margin-inline: auto;
-
-        @include dt {
-            top: -5rem;
-            right: -1.5rem;
+            top: $rock-bonus-desktop;
+            left: 12.5rem;
         }
     }
 
     &_paper {
-        top: 3.25rem;
-        right: 0;
+        top: $paper-bonus-mobile;
+        left: 13.5rem;
 
         @include dt {
-            right: -5rem;
+            top: $paper-bonus-desktop;
+            left: 16.5rem;
+        }
+    }
+
+    &_scissors {
+        top: $scissors-bonus-mobile;
+        left: 6.75rem;
+
+        @include dt {
+            top: $scissors-bonus-desktop;
+            left: 6.75rem;
         }
     }
 
     &_spock {
-        top: 3.25rem;
+        top: $spock-bonus-mobile;
         left: 0;
 
         @include dt {
-            top: 2.8rem;
+            top: $spock-bonus-desktop;
             left: -3.5rem;
         }
     }
 
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.originalButton {
-    position: absolute;
-    width: 38%;
-
-    @include dt {
-        width: 62%;
-    }
-
-    &_rock {
-        bottom: -1rem;
+    &_lizard {
+        top: $lizard-bonus-mobile;
+        left: 2.75rem;
 
         @include dt {
-            bottom: -5rem;
-            left: 0;
-            right: 0;
-            margin-inline: auto;
-        }
-    }
-
-    &_paper {
-        top: -3rem;
-        left: 1rem;
-
-        @include dt {
-            top: -5rem;
-            left: -5rem;
-        }
-    }
-
-    &_scissors {
-        top: -3rem;
-        right: 1rem;
-
-        @include dt {
-            top: -5rem;
-            right: -5rem;
+            top: $lizard-bonus-desktop;
+            left: .7rem;
         }
     }
 

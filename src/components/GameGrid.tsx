@@ -11,17 +11,20 @@ export default function GameGrid(
     }) {
 
     const [isSelected, setIsSelected] = useState<boolean>(false)
+
     const nodeRef = useRef(null)
 
     useEffect(() => {
         choice ? setIsSelected(true) : setIsSelected(false)
     }, [choice])
 
+    let duration = isSelected ? 0 : 1000
+
     return (
         <SwitchTransition mode={'out-in'}>
             <CSSTransition
                 key={isSelected}
-                timeout={1000}
+                timeout={duration}
                 classNames='stateAnimate'
                 nodeRef={nodeRef} >
                 <div ref={nodeRef} className='gameGridContainer'>{
@@ -34,6 +37,7 @@ export default function GameGrid(
                         : <Reveal
                             currentMode={currentMode}
                             currentGameArr={currentGameArr}
+                            choice={choice}
                             setScore={setScore}
                             setChoice={setChoice} />
                 } </div>

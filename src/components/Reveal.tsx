@@ -3,16 +3,21 @@ import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from 'react-transition-group'
 import { Mode } from "../data"
 
-export default function Reveal({ currentGameArr, setChoice, setScore, currentMode: { options } }:
-    { currentGameArr: string[], setChoice: any, setScore: any, currentMode: Mode }) {
+export default function Reveal({ currentGameArr, setChoice, setScore, choice, currentMode: { options } }:
+    { currentGameArr: string[], setChoice: any, setScore: any, choice: string, currentMode: Mode }) {
 
     const [playerChoice] = [...currentGameArr]
     const [housePick, setHousePick] = useState<number>(0)
     const [reveal, setReveal] = useState<boolean>(false)
+    const [animateFade, setAnimateFade] = useState<boolean>(true)
 
     const resultRef = useRef(null)
     const playerRef = useRef(null)
     const houseRef = useRef(null)
+
+    useEffect(() => {
+        choice ? setAnimateFade(true) : setAnimateFade(false)
+    }, [choice])
 
     useEffect(() => {
         setTimeout(() => {
@@ -52,7 +57,13 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                             {resultFunc() === 'win' && <VictoryShadow />}
                         </div>
                     </div>
-                    <h2 className="font-600">you picked</h2>
+                    <CSSTransition
+                        in={animateFade}
+                        timeout={500}
+                        appear
+                        classNames='revealContainerFade' >
+                        <h2 className="font-600">you picked</h2>
+                    </CSSTransition>
                 </div>
             </CSSTransition>
             <CSSTransition
@@ -60,19 +71,26 @@ export default function Reveal({ currentGameArr, setChoice, setScore, currentMod
                 timeout={1000}
                 classNames='houseAnimate'
                 nodeRef={houseRef} >
-                <div ref={houseRef} className="revealContainer_house">
-                    <div
-                        className={reveal
-                            ? `button revealButton button_${currentGameArr[housePick]}`
-                            : 'button revealButton revealButton_blank'} >
-                        {reveal &&
-                            <div>
-                                {resultFunc() === 'lose' && <VictoryShadow />}
-                            </div>
-                        }
+                <CSSTransition
+                    in={animateFade}
+                    timeout={500}
+                    appear
+                    classNames='revealContainerFade' >
+                    <div ref={houseRef} className="revealContainer_house">
+                        <div
+                            className={reveal
+                                ? `button revealButton button_${currentGameArr[housePick]}`
+                                : 'button revealButton revealButton_blank'} >
+                            {reveal &&
+                                <div>
+                                    {resultFunc() === 'lose' && <VictoryShadow />}
+                                </div>
+                            }
+                        </div>
+                        <h2 className="font-600">the house picked</h2>
                     </div>
-                    <h2 className="font-600">the house picked</h2>
-                </div>
+
+                </CSSTransition >
             </CSSTransition>
         </div >
     )
