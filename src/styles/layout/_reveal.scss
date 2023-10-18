@@ -6,19 +6,19 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    gap: 20%;
-    /*font-size controls box shadows of option buttons*/
-    font-size: .7rem;
+    /*font-size controls box shadows of reveal options*/
+    font-size: clamp(0.7rem, 0.3111rem + 2.2222vw, 1.2rem);
 
     @include dt {
         width: auto;
-        height: 100%;
+        align-self: flex-start;
         display: grid;
+        padding-block-start: 3rem;
         grid-template-columns: max-content 0fr max-content;
         grid-template-rows: 1fr;
         gap: 4.5rem;
-        padding-block-start: 2.55rem;
-        font-size: 1.7rem;
+        /*font-size controls box shadows of reveal options*/
+        font-size: clamp(1rem, -0.0087rem + 2.2261vw, 1.8rem);
     }
 
     &_result {
@@ -48,7 +48,6 @@
             border-radius: .75rem;
             border: none;
             text-transform: uppercase;
-            margin-block-end: 5rem;
             font-size: clamp(0.65rem, 0.3457rem + 2.4348vw, 1rem);
             letter-spacing: .1rem;
             color: $dark-text;
@@ -82,6 +81,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-right: auto;
         position: relative;
 
         @include dt {
@@ -95,6 +95,7 @@
         flex-direction: column;
         align-items: center;
         position: relative;
+        margin-left: auto;
 
         @include dt {
             grid-column: 3/4;
@@ -115,11 +116,10 @@
             margin-block: 0 4rem;
         }
     }
-
 }
 
 .revealButton {
-    width: 100%;
+    width: clamp(7rem, 2.3333rem + 26.6667vw, 13rem);
 
     @include dt {
         width: clamp(8rem, 1.6933rem + 23.4667vw, 19rem);

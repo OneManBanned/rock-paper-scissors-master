@@ -11,15 +11,21 @@
     opacity: 0;
 }
 
+.animateHeaderFade-appear,
+.buttonsFadeIn-appear,
 .revealContainerFade-appear {
     opacity: 0;
 }
 
+.animateHeaderFade-appear-active,
+.buttonsFadeIn-appear-active,
 .revealContainerFade-appear-active {
     opacity: 1;
-    transition: opacity 500ms;
+    transition: opacity 750ms;
 }
 
+.animateHeaderFade-appear-done,
+.buttonsFadeIn-appear-done,
 .revealContainerFade-appear-done {
     opacity: 1;
 }

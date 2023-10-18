@@ -11,7 +11,7 @@ function App() {
   const gameModes = [original, bonus]
 
   const [score, setScore] = useState<number>(0)
-  const [modal, setModal] = useState<boolean>(false)
+  const [isModal, setIsModal] = useState<boolean>(false)
   const [choice, setChoice] = useState<any>(undefined)
   const [currentGameArr, setCurrentGameArr] = useState<string[]>([])
   const [mode, setMode] = useState<number>(0)
@@ -37,9 +37,9 @@ function App() {
     <main>
 
       <Header
-        scoreState={score}
+        score={score}
         mode={mode}
-        currentMode={currentMode} />
+        altText={currentMode.options.join(', ')} />
 
       <GameGrid
         mode={mode}
@@ -52,12 +52,12 @@ function App() {
       <Buttons
         setMode={setMode}
         mode={mode}
-        setModal={setModal} />
+        showModal={setIsModal} />
 
       <Modal
         currentMode={currentMode}
-        openModal={modal}
-        closeModal={() => setModal(false)} />
+        modalOpen={isModal}
+        closeModal={() => setIsModal(false)} />
 
     </main>
   )

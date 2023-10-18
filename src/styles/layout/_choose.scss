@@ -7,9 +7,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+
+    @include dt {
+        width: auto;
+        align-self: flex-end;
+    }
 
     &_original {
-        font-size: 70%;
+        font-size: clamp(0.55rem, -0.1889rem + 4.2222vw, 1.5rem);
 
         @include dt {
             font-size: 100%;
@@ -17,7 +23,7 @@
     }
 
     &_bonus {
-        font-size: .55rem;
+        font-size: clamp(0.45rem, 0.0222rem + 2.4444vw, 1rem);
 
         @include dt {
             font-size: .75rem;
@@ -33,47 +39,44 @@
     }
 }
 
+// Y and X coordinates of options are stored in ../abstracts/optionsPositions.scss
+// they are used in ../animations/_selectedOptionsSlide.scss to create slide animation.
+
 .originalButton {
     position: absolute;
-    width: 38%;
+    width: 40%;
 
     @include dt {
         width: 62%;
     }
 
-    &_test {
-        position: absolute;
-        // width: 50%;
-        top: 3rem;
-        right: 3rem;
-    }
-
     &_rock {
-        top: $rock-original-mobile;
-        left: 6rem;
+        bottom: $rock-original-mobile-Y;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
 
         @include dt {
-            top: $rock-original-desktop;
-            left: 3.5rem;
+            top: $rock-original-desktop-Y;
         }
     }
 
     &_paper {
-        top: $paper-original-mobile;
-        left: 1rem;
+        top: $paper-original-mobile-Y;
+        left: 0;
 
         @include dt {
-            top: $paper-original-desktop;
+            top: $paper-original-desktop-Y;
             left: -5rem;
         }
     }
 
     &_scissors {
-        top: $scissors-original-mobile;
-        left: 11.5rem;
+        top: $scissors-original-mobile-Y;
+        right: 0;
 
         @include dt {
-            top: $scissors-original-desktop;
+            top: $scissors-original-desktop-Y;
             left: 12rem;
         }
     }
@@ -85,60 +88,59 @@
 
 .bonusButton {
     position: absolute;
-    width: 40%;
-    max-width: 6rem;
+    width: 32%;
 
     @include dt {
         width: 42.75%;
-        max-width: unset;
     }
 
     &_rock {
-        top: $rock-bonus-mobile;
-        left: 11rem;
+        top: $rock-bonus-mobile-Y;
+        right: 10%;
 
         @include dt {
-            top: $rock-bonus-desktop;
+            top: $rock-bonus-desktop-Y;
             left: 12.5rem;
         }
     }
 
     &_paper {
-        top: $paper-bonus-mobile;
-        left: 13.5rem;
+        top: $paper-bonus-mobile-Y;
+        right: 0%;
 
         @include dt {
-            top: $paper-bonus-desktop;
+            top: $paper-bonus-desktop-Y;
             left: 16.5rem;
         }
     }
 
     &_scissors {
-        top: $scissors-bonus-mobile;
-        left: 6.75rem;
+        top: $scissors-bonus-mobile-Y;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
 
         @include dt {
-            top: $scissors-bonus-desktop;
-            left: 6.75rem;
+            top: $scissors-bonus-desktop-Y;
         }
     }
 
     &_spock {
-        top: $spock-bonus-mobile;
-        left: 0;
+        top: $spock-bonus-mobile-Y;
+        left: 0%;
 
         @include dt {
-            top: $spock-bonus-desktop;
+            top: $spock-bonus-desktop-Y;
             left: -3.5rem;
         }
     }
 
     &_lizard {
-        top: $lizard-bonus-mobile;
-        left: 2.75rem;
+        top: $lizard-bonus-mobile-Y;
+        left: 10%;
 
         @include dt {
-            top: $lizard-bonus-desktop;
+            top: $lizard-bonus-desktop-Y;
             left: .7rem;
         }
     }

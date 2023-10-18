@@ -1,21 +1,21 @@
 // Mobile Positions
-$rock-original-mobile: 6rem;
-$paper-original-mobile: -3rem;
-$scissors-original-mobile: -3rem;
+$rock-original-mobile-Y: -20%;
+$paper-original-mobile-Y: -20%;
+$scissors-original-mobile-Y: -20%;
 
-$rock-bonus-mobile: 11.25rem;
-$paper-bonus-mobile: 3rem;
-$scissors-bonus-mobile: -3rem;
-$spock-bonus-mobile: 3rem;
-$lizard-bonus-mobile: 11.25rem;
+$rock-bonus-mobile-Y: 80%;
+$paper-bonus-mobile-Y: 20%;
+$scissors-bonus-mobile-Y: -20%;
+$spock-bonus-mobile-Y: 20%;
+$lizard-bonus-mobile-Y: 80%;
 
 // Desktop Positions
-$rock-original-desktop: 9.25rem;
-$paper-original-desktop: -5rem;
-$scissors-original-desktop: -5rem;
+$rock-original-desktop-Y: 9.25rem;
+$paper-original-desktop-Y: -30%;
+$scissors-original-desktop-Y: -30%;
 
-$rock-bonus-desktop: 14.5rem;
-$paper-bonus-desktop: 2.75rem;
-$scissors-bonus-desktop: -5.1rem;
-$spock-bonus-desktop: 2.75;
-$lizard-bonus-desktop: 14.5rem;
+$rock-bonus-desktop-Y: 75%;
+$paper-bonus-desktop-Y: 15%;
+$scissors-bonus-desktop-Y: -20%;
+$spock-bonus-desktop-Y: 15%;
+$lizard-bonus-desktop-Y: 75%;

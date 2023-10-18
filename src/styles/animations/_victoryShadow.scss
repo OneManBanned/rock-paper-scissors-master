@@ -1,60 +1,62 @@
 @use '../abstracts/breakpoints' as *;
 
 .shadowGroup {
-    position: absolute;
-    z-index: -1;
+    z-index: -2;
     border-radius: 50%;
-    margin-inline: auto;
     aspect-ratio: 1;
-    left: -5rem;
-    top: -4.75rem;
-    // background-color: yellow;
-    width: 225%;
+    background-color: yellow;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include dt {
-        left: -14rem;
-        top: -8rem;
-        width: 250%;
+        top: unset;
+        bottom: 0;
     }
 }
 
 .shadowAnimateOne-appear,
 .shadowAnimateTwo-appear,
 .shadowAnimateThree-appear {
-    position: inherit;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    position: absolute;
     border-radius: 50%;
     aspect-ratio: 1;
-    width: 40%;
+    width: 100%;
 }
 
 .shadowAnimateOne-appear-active {
-    border-radius: 50%;
-    aspect-ratio: 1;
     background-color: hsla(220, 47%, 23%, .25);
-    width: 100%;
+    width: 325%;
     transition: width 250ms ease-out 1000ms;
+}
+
+.shadowAnimateOne-appear-done {
+    background-color: hsla(220, 47%, 23%, .25);
+    width: 325%;
 }
 
 .shadowAnimateTwo-appear-active {
-    border-radius: 50%;
-    aspect-ratio: 1;
     background-color: hsla(220, 47%, 23%, .5);
-    width: 80%;
-    opacity: .5;
+    width: 250%;
     transition: width 250ms ease-out 1000ms;
 }
 
+.shadowAnimateTwo-appear-done {
+    background-color: hsla(220, 47%, 23%, .5);
+    width: 250%;
+}
+
 .shadowAnimateThree-appear-active {
-    border-radius: 50%;
-    aspect-ratio: 1;
     background-color: hsla(220, 47%, 23%);
-    width: 60%;
+    width: 190%;
     transition: width 250ms ease-out 1000ms;
+}
+
+.shadowAnimateThree-appear-done {
+    background-color: hsla(220, 47%, 23%);
+    width: 190%;
 }
 
 .shadowAnimateOne-appear-done,
@@ -63,24 +65,4 @@
     position: absolute;
     border-radius: 50%;
     aspect-ratio: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-.shadowAnimateOne-appear-done {
-    background-color: hsla(220, 47%, 23%, .25);
-    width: 100%;
-}
-
-.shadowAnimateTwo-appear-done {
-    background-color: hsla(220, 47%, 23%, .5);
-    width: 80%;
-}
-
-.shadowAnimateThree-appear-done {
-    background-color: hsla(220, 47%, 23%);
-    width: 60%;
 }

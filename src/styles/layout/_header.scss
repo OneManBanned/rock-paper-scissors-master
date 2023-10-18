@@ -2,7 +2,7 @@
 @use '../abstracts/breakpoints' as *;
 
 .headerContainer {
-    margin-block: 2rem;
+    margin-block-start: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,7 +15,6 @@
     @include dt {
         padding: 1.6rem 1.5rem 1.4rem 1.5rem;
         border-radius: 1rem;
-        margin-block-start: 2.75rem;
     }
 
     &_name {

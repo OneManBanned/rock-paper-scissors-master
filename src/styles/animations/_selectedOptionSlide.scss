@@ -1,23 +1,23 @@
 @use '../abstracts/breakpoints' as *;
 @use '../abstracts/optionPositions' as *;
 
-// Original Desktop
+// Original desktop-Y
 
 .animateSelect-original-rock-enter {
     left: 0;
-    top: $rock-original-desktop;
+    top: $rock-original-desktop-Y;
     transform: scale(100%);
 }
 
 .animateSelect-original-paper-enter {
     left: 0;
-    top: $paper-original-desktop;
+    top: $paper-original-desktop-Y;
     transform: scale(100%);
 }
 
 .animateSelect-original-scissors-enter {
     left: 0;
-    top: $scissors-original-desktop;
+    top: $scissors-original-desktop-Y;
     transform: scale(100%);
 }
 
@@ -47,35 +47,35 @@
     }
 }
 
-// Bonus Desktop
+// Bonus desktop-Y
 
 .animateSelect-bonus-rock-enter {
     left: 0;
-    top: $rock-bonus-desktop;
+    top: $rock-bonus-desktop-Y;
     transform: scale(100%);
 }
 
 .animateSelect-bonus-paper-enter {
     left: 0;
-    top: $paper-bonus-desktop;
+    top: $paper-bonus-desktop-Y;
     transform: scale(100%);
 }
 
 .animateSelect-bonus-scissors-enter {
     left: 0;
-    top: $scissors-bonus-desktop;
+    top: $scissors-bonus-desktop-Y;
     transform: scale(100%);
 }
 
 .animateSelect-bonus-spock-enter {
     left: 0;
-    top: $spock-bonus-desktop;
+    top: $spock-bonus-desktop-Y;
     transform: scale(100%);
 }
 
 .animateSelect-bonus-lizard-enter {
     left: 0;
-    top: $lizard-bonus-desktop;
+    top: $lizard-bonus-desktop-Y;
     transform: scale(100%);
 }
 

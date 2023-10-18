@@ -5,8 +5,9 @@
 .btnContainer {
     width: 85%;
     display: flex;
+    max-width: 82.5rem;
     justify-content: space-between;
-    margin: 0 0 1.25rem 0;
+    margin-block-end: 1.25rem;
 
     @include dt {
         position: relative;

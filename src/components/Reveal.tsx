@@ -1,23 +1,18 @@
 import VictoryShadow from "./VictoryShadow"
 import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from 'react-transition-group'
-import { Mode } from "../data"
 
-export default function Reveal({ currentGameArr, setChoice, setScore, choice, currentMode: { options } }:
-    { currentGameArr: string[], setChoice: any, setScore: any, choice: string, currentMode: Mode }) {
+export default function Reveal({ currentGameArr, setChoice, setScore, choice, options }:
+    { currentGameArr: string[], setChoice: any, setScore: any, choice: string, options: string[] }) {
 
     const [playerChoice] = [...currentGameArr]
     const [housePick, setHousePick] = useState<number>(0)
     const [reveal, setReveal] = useState<boolean>(false)
     const [animateFade, setAnimateFade] = useState<boolean>(true)
 
-    const resultRef = useRef(null)
-    const playerRef = useRef(null)
-    const houseRef = useRef(null)
+    const resultRef = useRef(null), playerRef = useRef(null), houseRef = useRef(null)
 
-    useEffect(() => {
-        choice ? setAnimateFade(true) : setAnimateFade(false)
-    }, [choice])
+    useEffect(() => { choice ? setAnimateFade(true) : setAnimateFade(false) }, [choice])
 
     useEffect(() => {
         setTimeout(() => {
@@ -37,62 +32,41 @@ export default function Reveal({ currentGameArr, setChoice, setScore, choice, cu
                 in={reveal}
                 timeout={1000}
                 classNames='animate'
-                nodeRef={resultRef} >
-                <div ref={resultRef}
-                    className={reveal
-                        ? "revealContainer_result"
-                        : 'revealContainer_result-notRevealed'}>
+                nodeRef={resultRef}>
+                <div ref={resultRef} className={reveal
+                    ? "revealContainer_result"
+                    : 'revealContainer_result-notRevealed'}>
                     <p className="font-700">{`you ${resultFunc()}`}</p>
                     <button className="font-700" onClick={() => setChoice(undefined)}>play again</button>
-                </div >
+                </div>
             </CSSTransition>
-            <CSSTransition
-                in={reveal}
-                timeout={1000}
-                classNames='playerAnimate'
-                nodeRef={playerRef} >
+            <CSSTransition in={reveal} timeout={1000} nodeRef={playerRef}
+                classNames='playerAnimate'>
                 <div ref={playerRef} className={"revealContainer_player"}>
                     <div className={`button button_${playerChoice} revealButton`}>
-                        <div>
-                            {resultFunc() === 'win' && <VictoryShadow />}
-                        </div>
+                        <div>{resultFunc() === 'win' && <VictoryShadow />}</div>
                     </div>
-                    <CSSTransition
-                        in={animateFade}
-                        timeout={500}
-                        appear
-                        classNames='revealContainerFade' >
+                    <CSSTransition in={animateFade} timeout={500} appear
+                        classNames='revealContainerFade'>
                         <h2 className="font-600">you picked</h2>
                     </CSSTransition>
                 </div>
             </CSSTransition>
-            <CSSTransition
-                in={reveal}
-                timeout={1000}
-                classNames='houseAnimate'
-                nodeRef={houseRef} >
-                <CSSTransition
-                    in={animateFade}
-                    timeout={500}
-                    appear
-                    classNames='revealContainerFade' >
+            <CSSTransition in={reveal} timeout={1000} nodeRef={houseRef}
+                classNames='houseAnimate'>
+                <CSSTransition in={animateFade} timeout={500} appear
+                    classNames='revealContainerFade'>
                     <div ref={houseRef} className="revealContainer_house">
-                        <div
-                            className={reveal
-                                ? `button revealButton button_${currentGameArr[housePick]}`
-                                : 'button revealButton revealButton_blank'} >
-                            {reveal &&
-                                <div>
-                                    {resultFunc() === 'lose' && <VictoryShadow />}
-                                </div>
-                            }
+                        <div className={reveal
+                            ? `button revealButton button_${currentGameArr[housePick]}`
+                            : 'button revealButton revealButton_blank'}>
+                            {reveal && <div>{resultFunc() === 'lose' && <VictoryShadow />}</div>}
                         </div>
                         <h2 className="font-600">the house picked</h2>
                     </div>
-
-                </CSSTransition >
+                </CSSTransition>
             </CSSTransition>
-        </div >
+        </div>
     )
 
     function resultFunc(): string {

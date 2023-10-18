@@ -12,20 +12,14 @@ body {
     min-height: 100vh;
     background: radial-gradient(circle 150vh at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     background-repeat: no-repeat;
-}
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-inline: auto;
-    justify-content: space-between;
-    max-width: 82.5rem;
-    overflow: hidden;
-    height: 100vh;
 
-    @include dt {
-        min-height: unset;
-        height: 48rem;
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        min-height: 100vh;
     }
 }

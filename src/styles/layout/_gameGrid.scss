@@ -1,8 +1,15 @@
+@use '../abstracts/breakpoints' as *;
+
 .gameGridContainer {
     max-width: 61rem;
     width: 85%;
-    height: 100%;
     display: flex;
     align-items: center;
+    margin-block: auto;
     justify-content: center;
+
+    @include dt {
+        min-height: 25rem;
+        margin-block: 1.5rem 5rem;
+    }
 }

@@ -13,15 +13,11 @@ export default function VictoryShadow() {
     return (<>
         <TransitionGroup className='shadowGroup'>
             {divArray.map(({ name, nodeRef }, index) => {
-                return (<CSSTransition
-                    key={index}
-                    in={true}
-                    appear
-                    nodeRef={nodeRef}
-                    timeout={1250}
-                    classNames={`shadowAnimate${name}`} >
+                return (<CSSTransition key={index} in={true} appear nodeRef={nodeRef}
+                    timeout={1250} classNames={`shadowAnimate${name}`} >
                     <div ref={nodeRef} ></div>
                 </CSSTransition>)
-            })} </TransitionGroup>
+            })}
+        </TransitionGroup>
     </>)
 }
