@@ -37,7 +37,7 @@ export default function Choose(
                     {optionsArr.map(({ name, nodeRef }, index) => {
                         return (<CSSTransition key={index} in={animateSelect} nodeRef={nodeRef}
                             timeout={1000} appear classNames={name === choice
-                                ? `animateSelect-${currentMode}-${name} animateSelect-${currentMode}`
+                                ? `animateSelect-${currentMode}-${name}`
                                 : 'animateFade'} >
                             <button ref={nodeRef} className={isEnter
                                 ? `button originalButton originalButton_${name} button_${name}`

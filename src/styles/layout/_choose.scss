@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    // width: 50%;
 
     @include dt {
         width: auto;
@@ -18,7 +19,7 @@
         font-size: clamp(0.55rem, -0.1889rem + 4.2222vw, 1.5rem);
 
         @include dt {
-            font-size: 100%;
+            font-size: 115%;
         }
     }
 
@@ -26,7 +27,7 @@
         font-size: clamp(0.45rem, 0.0222rem + 2.4444vw, 1rem);
 
         @include dt {
-            font-size: .75rem;
+            font-size: .85rem;
         }
     }
 
@@ -39,9 +40,6 @@
     }
 }
 
-// Y and X coordinates of options are stored in ../abstracts/optionsPositions.scss
-// they are used in ../animations/_selectedOptionsSlide.scss to create slide animation.
-
 .originalButton {
     position: absolute;
     width: 40%;
@@ -51,33 +49,33 @@
     }
 
     &_rock {
-        bottom: $rock-original-mobile-Y;
-        left: 0;
-        right: 0;
+        bottom: -20%;
+        left: 0%;
+        right: 0%;
         margin-inline: auto;
 
         @include dt {
-            top: $rock-original-desktop-Y;
+            top: 50%;
         }
     }
 
     &_paper {
-        top: $paper-original-mobile-Y;
+        top: -20%;
         left: 0;
 
         @include dt {
-            top: $paper-original-desktop-Y;
-            left: -5rem;
+            top: -31%;
+            left: -26%;
         }
     }
 
     &_scissors {
-        top: $scissors-original-mobile-Y;
-        right: 0;
+        top: -20%;
+        right: 0%;
 
         @include dt {
-            top: $scissors-original-desktop-Y;
-            left: 12rem;
+            top: -31%;
+            left: 66%;
         }
     }
 
@@ -95,53 +93,53 @@
     }
 
     &_rock {
-        top: $rock-bonus-mobile-Y;
+        top: 80%;
         right: 10%;
 
         @include dt {
-            top: $rock-bonus-desktop-Y;
-            left: 12.5rem;
+            top: 75%;
+            right: 0%;
         }
     }
 
     &_paper {
-        top: $paper-bonus-mobile-Y;
+        top: 20%;
         right: 0%;
 
         @include dt {
-            top: $paper-bonus-desktop-Y;
-            left: 16.5rem;
+            top: 15%;
+            right: -20%;
         }
     }
 
     &_scissors {
-        top: $scissors-bonus-mobile-Y;
+        top: -20%;
         left: 0;
         right: 0;
         margin-inline: auto;
 
         @include dt {
-            top: $scissors-bonus-desktop-Y;
+            top: -20%;
         }
     }
 
     &_spock {
-        top: $spock-bonus-mobile-Y;
+        top: 20%;
         left: 0%;
 
         @include dt {
-            top: $spock-bonus-desktop-Y;
-            left: -3.5rem;
+            top: 15%;
+            left: -20%;
         }
     }
 
     &_lizard {
-        top: $lizard-bonus-mobile-Y;
+        top: 80%;
         left: 10%;
 
         @include dt {
-            top: $lizard-bonus-desktop-Y;
-            left: .7rem;
+            top: 75%;
+            left: 0%;
         }
     }
 
