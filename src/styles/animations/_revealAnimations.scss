@@ -9,18 +9,13 @@
     transition: opacity 1000ms;
 }
 
-.playerAnimate-enter {
+.playerSlideAnimate-enter {
     @include dt {
         transform: translatex(30%)
     }
 }
 
-.playerAnimate-enter-active {
-    transform: translatex(0%);
-    transition: transform 1000ms;
-}
-
-.houseAnimate-enter {
+.houseSlideAnimate-enter {
     transform: translateX(0%);
 
     @include dt {
@@ -28,7 +23,8 @@
     }
 }
 
-.houseAnimate-enter-active {
+.playerSlideAnimate-enter-active,
+.houseSlideAnimate-enter-active {
     transform: translatex(0%);
     transition: transform 1000ms;
 }

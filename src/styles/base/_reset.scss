@@ -1,5 +1,3 @@
-@use '../abstracts/breakpoints' as *;
-
 *,
 *:after,
 *:before {
@@ -10,9 +8,8 @@
 
 body {
     min-height: 100vh;
-    background: radial-gradient(circle 150vh at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background: radial-gradient(circle 125vh at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     background-repeat: no-repeat;
-
 
     main {
         display: flex;

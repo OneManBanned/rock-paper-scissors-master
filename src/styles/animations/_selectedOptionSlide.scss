@@ -7,7 +7,7 @@
 }
 
 .animateSelect-original-scissors-enter {
-    left: 50%;
+    left: 60%;
 }
 
 .animateSelect-original-rock-enter-active {
@@ -91,9 +91,12 @@
     }
 }
 
-.animateSelect-bonus-paper-enter,
+.animateSelect-bonus-paper-enter {
+    left: 65%;
+}
+
 .animateSelect-bonus-rock-enter {
-    left: 50%;
+    left: 55%;
 }
 
 .animateSelect-bonus-rock-enter-active,

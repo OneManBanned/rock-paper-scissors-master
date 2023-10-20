@@ -75,6 +75,12 @@ dialog {
             justify-self: flex-end;
             grid-row: 1/2;
             grid-column: 2/3;
+
+            &:focus-visible {
+                outline: medium solid orange;
+                outline-offset: -.25rem;
+                border-radius: .5rem;
+            }
         }
     }
 

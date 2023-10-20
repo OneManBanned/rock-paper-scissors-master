@@ -1,12 +1,15 @@
 import { useEffect, useRef } from "react";
 import { CSSTransition } from 'react-transition-group'
+import { useClickOutside } from "../customHooks";
 import { Mode } from "../data";
 
 export default function Modal(
     { modalOpen, closeModal, currentMode: { rules, rulesAlt } }:
         { modalOpen: boolean, closeModal: any, currentMode: Mode }) {
 
-    const modalRef: any = useRef();
+    const modalRef: any = useRef(null), modalDivRef = useRef(null);
+
+    useClickOutside(modalDivRef, closeModal)
 
     useEffect(() => {
         if (modalOpen) {
@@ -22,7 +25,7 @@ export default function Modal(
         <CSSTransition in={modalOpen} timeout={500} nodeRef={modalRef}
             classNames='rulesModal_modalAnimate' >
             <dialog ref={modalRef} onCancel={closeModal} >
-                <div className="rulesModal">
+                <div ref={modalDivRef} className="rulesModal">
                     <h2 className="rulesModal_header font-700">rules</h2>
                     <button className="rulesModal_close" aria-label="close modal"
                         onClick={closeModal}></button>

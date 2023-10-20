@@ -1,6 +1,5 @@
 @use '../abstracts/breakpoints' as *;
 @use '../abstracts/colors' as *;
-@use '../abstracts/optionPositions' as *;
 
 .chooseContainer {
     position: relative;
@@ -8,7 +7,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    // width: 50%;
 
     @include dt {
         width: auto;
@@ -16,6 +14,7 @@
     }
 
     &_original {
+        // font size controls box-shadows of choice options
         font-size: clamp(0.55rem, -0.1889rem + 4.2222vw, 1.5rem);
 
         @include dt {
@@ -24,6 +23,7 @@
     }
 
     &_bonus {
+        // font size controls box-shadows of choice options
         font-size: clamp(0.45rem, 0.0222rem + 2.4444vw, 1rem);
 
         @include dt {
@@ -46,6 +46,11 @@
 
     @include dt {
         width: 62%;
+
+        &:focus-visible {
+            outline: thick solid orange;
+            outline-offset: -2em;
+        }
     }
 
     &_rock {
@@ -90,6 +95,11 @@
 
     @include dt {
         width: 42.75%;
+
+        &:focus-visible {
+            outline: thick solid orange;
+            outline-offset: -2em;
+        }
     }
 
     &_rock {

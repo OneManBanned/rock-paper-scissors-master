@@ -2,46 +2,35 @@ import VictoryShadow from "./VictoryShadow"
 import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from 'react-transition-group'
 
-export default function Reveal({ currentGameArr, setChoice, setScore, choice, options }:
-    { currentGameArr: string[], setChoice: any, setScore: any, choice: string, options: string[] }) {
+export default function Reveal({ currentGameArr, setChoice, setScore, choice }:
+    { currentGameArr: string[], setChoice: any, setScore: any, choice: string }) {
 
     const [playerChoice] = [...currentGameArr]
     const [housePick, setHousePick] = useState<number>(0)
     const [reveal, setReveal] = useState<boolean>(false)
     const [animateFade, setAnimateFade] = useState<boolean>(true)
 
-    const resultRef = useRef(null), playerRef = useRef(null), houseRef = useRef(null)
+    const resultRef = useRef(null), playerRef = useRef(null), houseRef = useRef(null);
 
     useEffect(() => { choice ? setAnimateFade(true) : setAnimateFade(false) }, [choice])
-
     useEffect(() => {
-        setTimeout(() => {
-            if (!housePick) {
-                setHousePick(Math.floor(Math.random() * options.length))
-                setReveal(true)
-            }
-            if (resultFunc() === 'win') {
-                setScore((prevScore: number) => prevScore += 1)
-            }
-        }, 1000);
+        setTimeout(() => { randomHouseChoice(); playerWinScoreIncrement() }, 1000);
     }, [housePick])
 
     return (
         <div className={reveal ? "revealContainer revealed" : "revealContainer"}>
-            <CSSTransition
-                in={reveal}
-                timeout={1000}
-                classNames='animate'
-                nodeRef={resultRef}>
+            <CSSTransition in={reveal} timeout={1000} nodeRef={resultRef}
+                classNames='animate'>
                 <div ref={resultRef} className={reveal
                     ? "revealContainer_result"
                     : 'revealContainer_result-notRevealed'}>
                     <p className="font-700">{`you ${resultFunc()}`}</p>
-                    <button className="font-700" onClick={() => setChoice(undefined)}>play again</button>
+                    <button className="font-700"
+                        onClick={() => setChoice(undefined)}>play again</button>
                 </div>
             </CSSTransition>
             <CSSTransition in={reveal} timeout={1000} nodeRef={playerRef}
-                classNames='playerAnimate'>
+                classNames='playerSlideAnimate'>
                 <div ref={playerRef} className={"revealContainer_player"}>
                     <div className={`button button_${playerChoice} revealButton`}>
                         <div>{resultFunc() === 'win' && <VictoryShadow />}</div>
@@ -53,7 +42,7 @@ export default function Reveal({ currentGameArr, setChoice, setScore, choice, op
                 </div>
             </CSSTransition>
             <CSSTransition in={reveal} timeout={1000} nodeRef={houseRef}
-                classNames='houseAnimate'>
+                classNames='houseSlideAnimate'>
                 <CSSTransition in={animateFade} timeout={500} appear
                     classNames='revealContainerFade'>
                     <div ref={houseRef} className="revealContainer_house">
@@ -78,6 +67,21 @@ export default function Reveal({ currentGameArr, setChoice, setScore, choice, op
             return 'win'
         }
         return '';
+    }
+
+    function randomHouseChoice() {
+        if (!housePick) {
+            setHousePick(Math.floor(Math.random() * currentGameArr.length))
+            setReveal(true)
+        }
+        return
+    }
+
+    function playerWinScoreIncrement() {
+        if (resultFunc() === 'win') {
+            setScore((prevScore: number) => prevScore += 1)
+        }
+        return
     }
 
 }

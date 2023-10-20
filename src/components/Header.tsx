@@ -1,5 +1,6 @@
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useState, useEffect, useRef } from 'react'
+import { original, bonus } from '../data'
 
 export default function Header(
     { score, mode, altText }: { score: number, mode: number, altText: string }) {
@@ -13,14 +14,14 @@ export default function Header(
 
     return (
         <SwitchTransition mode={'out-in'}>
-            <CSSTransition key={animate} timeout={400} nodeRef={nodeRef}
+            <CSSTransition key={animate} timeout={400} noderef={nodeRef}
                 classNames="animateHeader" >
                 <CSSTransition in={animate} appear timeout={750}
                     classNames="animateHeaderFade" >
                     <div ref={nodeRef} className="headerContainer">
-                        <img className="headerContainer_name" alt={altText} src={animate
-                            ? '/assets/images/logo.svg'
-                            : '/assets/images/logo-bonus.svg'} />
+                        <img className="headerContainer_name" alt={altText}
+                            src={animate ? bonus.img : original.img}
+                        />
                         <div className="headerContainer_scoreBoard">
                             <h2 className="headerContainer_scoreBoard_name font-600">score</h2>
                             <div className="headerContainer_scoreBoard_score font-700">{score}</div>

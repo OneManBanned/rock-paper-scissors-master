@@ -1,6 +1,5 @@
 @use '../abstracts/breakpoints' as *;
-@use '../abstracts//colors' as *;
-
+@use '../abstracts/colors' as *;
 
 .btnContainer {
     width: 85%;
@@ -25,17 +24,22 @@
     color: white;
     letter-spacing: .15rem;
     cursor: pointer;
+    transform: scale(100%);
+    transition: transform 200ms ease-in-out;
 
     @include dt {
         &:hover {
-            transform: translateY(-10%);
-            transition: transform 200ms ease-in-out;
+            transform: scale(110%);
+        }
+
+        &:focus-visible {
+            outline: medium solid orange;
+            outline-offset: .25rem;
         }
     }
 }
 
 .game_btn {
-
     @include dt {
         margin-inline-start: 2rem;
         font-size: 1rem;
@@ -43,7 +47,6 @@
 }
 
 .rules_btn {
-
     @include dt {
         font-size: 1rem;
         margin-inline-end: 2rem;

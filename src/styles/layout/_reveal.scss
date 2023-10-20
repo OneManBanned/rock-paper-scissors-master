@@ -56,6 +56,12 @@
                 color: hsl(349, 70%, 56%);
             }
 
+            &:focus-visible {
+                outline: medium solid orange;
+                outline-offset: -.4rem;
+                color: hsl(349, 70%, 56%);
+            }
+
             @include dt {
                 font-size: clamp(0.75rem, 0.6067rem + 0.5333vw, 1rem);
                 padding: 1rem 0;

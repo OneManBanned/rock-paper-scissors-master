@@ -1,14 +1,9 @@
 import { CSSTransition, TransitionGroup } from "react-transition-group"
-import { createRef } from "react"
-import { Item } from '../data'
+import { createItemsArray } from '../data'
 
 export default function VictoryShadow() {
 
-    const divArray: Item[] = [
-        { name: 'One', nodeRef: createRef() },
-        { name: 'Two', nodeRef: createRef() },
-        { name: 'Three', nodeRef: createRef() }
-    ]
+    const divArray = createItemsArray(['One', 'Two', 'Three'])
 
     return (<>
         <TransitionGroup className='shadowGroup'>

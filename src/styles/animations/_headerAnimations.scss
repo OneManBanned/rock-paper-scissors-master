@@ -1,17 +1,6 @@
-.animateHeader-enter-done {
-    transform: translateY(0%);
-}
-
+.animateHeader-enter-done,
 .animateHeader-exit {
     opacity: 1;
-}
-
-.animateHeader-exit-done {
-    opacity: 0;
-}
-
-.animateHeader-enter-done {
-    transform: translateY(0%);
 }
 
 .animateHeader-exit-active {
@@ -19,11 +8,12 @@
     transition: opacity 400ms,
 }
 
-.animateHeader-enter {
-    transform: translateY(-50vh);
+.animateHeader-enter,
+.animateHeader-exit-done {
+    opacity: 0;
 }
 
 .animateHeader-enter-active {
-    transform: translateY(0%);
-    transition: transform 400ms;
+    opacity: 1;
+    transition: opacity 400ms;
 }

@@ -3,12 +3,10 @@ import Header from './components/Header'
 import GameGrid from './components/GameGrid'
 import Modal from './components/Modal'
 import Buttons from "./components/Buttons"
+import { gameModes } from './data.tsx'
 import '../dist/css/index.css'
-import { original, bonus } from './data.tsx'
 
 function App() {
-
-  const gameModes = [original, bonus]
 
   const [score, setScore] = useState<number>(0)
   const [isModal, setIsModal] = useState<boolean>(false)
@@ -18,24 +16,11 @@ function App() {
 
   let currentMode = gameModes[mode]
 
-  useEffect(() => {
-    currentMode = gameModes[mode]
-    setChoice(undefined)
-  }, [mode])
-
-  useEffect(() => {
-    let { options } = currentMode
-    if (choice) {
-      const choiceIndex: number = options.indexOf(choice)
-      const gameArr: string[] = options.slice(choiceIndex)
-        .concat(options.slice(0, choiceIndex))
-      setCurrentGameArr(gameArr)
-    }
-  }, [choice])
+  useEffect(() => changeMode(), [mode])
+  useEffect(() => createWinConditionsArr(), [choice])
 
   return (
     <main>
-
       <Header
         score={score}
         mode={mode}
@@ -45,22 +30,37 @@ function App() {
         mode={mode}
         choice={choice}
         setChoice={setChoice}
-        currentMode={currentMode}
-        currentGameArr={currentGameArr}
-        setScore={setScore} />
+        setScore={setScore}
+        currentGameArr={currentGameArr} />
 
       <Buttons
         setMode={setMode}
         mode={mode}
+        choice={choice}
         showModal={setIsModal} />
 
       <Modal
         currentMode={currentMode}
         modalOpen={isModal}
         closeModal={() => setIsModal(false)} />
-
     </main>
   )
+
+  function changeMode() {
+    currentMode = gameModes[mode];
+    setChoice(undefined)
+  }
+
+  function createWinConditionsArr() {
+    let { options } = currentMode
+    if (choice) {
+      const choiceIndex: number = options.indexOf(choice)
+      const gameArr: string[] = options.slice(choiceIndex)
+        .concat(options.slice(0, choiceIndex))
+      setCurrentGameArr(gameArr)
+    }
+  }
+
 }
 
 export default App
