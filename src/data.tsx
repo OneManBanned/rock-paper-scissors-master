@@ -1,4 +1,10 @@
 import { createRef } from 'react';
+import Triangle from '/assets/images/bg-triangle.svg'
+import Pentagon from '/assets/images/bg-pentagon.svg'
+import OriginalHeader from '/public/assets/images/logo.svg'
+import BonusHeader from '/public/assets/images/logo-bonus.svg'
+import OriginalRules from '/public/assets/images/image-rules.svg'
+import BonusRules from '/public/assets/images/image-rules-bonus.svg'
 
 export interface Mode {
     options: string[];
@@ -11,19 +17,19 @@ export interface Mode {
 
 export let original: Mode = {
     options: ['rock', 'paper', 'scissors'],
-    rules: './image-rules.svg',
-    img: './logo.svg',
+    rules: OriginalRules,
+    img: OriginalHeader,
     rulesAlt: 'rock beats scissors, paper beats rock, scissors beats paper',
-    background: './bg-triangle.svg',
+    background: Triangle,
     original: true
 }
 
 export let bonus: Mode = {
     options: ['rock', 'paper', 'scissors', 'spock', 'lizard'],
-    rules: './image-rules-bonus.svg',
-    img: './logo-bonus.svg',
+    rules: BonusRules,
+    img: BonusHeader,
     rulesAlt: 'rock beats scissors and lizard, paper beats rock and spock, scissors beats paper and lizard, spock beats scissors and rock, lizard beats spock and paper',
-    background: './bg-pentagon.svg',
+    background: Pentagon,
     original: false
 }
 
