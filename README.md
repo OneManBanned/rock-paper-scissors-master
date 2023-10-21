@@ -17,7 +17,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [[Add solution URL here](https://www.frontendmentor.io/solutions/rock-paper-scissors-JDb7hgKXG6)]([https://your-solution-url.com](https://www.frontendmentor.io/solutions/rock-paper-scissors-JDb7hgKXG6))
+- Solution URL: [solutions/rock-paper-scissors-JDb7hgKXG6]([https://your-solution-url.com](https://www.frontendmentor.io/solutions/rock-paper-scissors-JDb7hgKXG6))
 - Live Site URL: [[Add live site URL here](https://onemanbanned.github.io/rock-paper-scissors-master/)]([https://your-live-site-url.com](https://onemanbanned.github.io/rock-paper-scissors-master/))
 
 ## My process
