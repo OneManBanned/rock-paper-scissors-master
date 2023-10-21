@@ -11,19 +11,19 @@ export interface Mode {
 
 export let original: Mode = {
     options: ['rock', 'paper', 'scissors'],
-    rules: 'images/image-rules.svg',
-    img: 'images/logo.svg',
+    rules: './image-rules.svg',
+    img: './logo.svg',
     rulesAlt: 'rock beats scissors, paper beats rock, scissors beats paper',
-    background: 'images/bg-triangle.svg',
+    background: './bg-triangle.svg',
     original: true
 }
 
 export let bonus: Mode = {
     options: ['rock', 'paper', 'scissors', 'spock', 'lizard'],
-    rules: 'images/image-rules-bonus.svg',
-    img: 'images/logo-bonus.svg',
+    rules: './image-rules-bonus.svg',
+    img: './logo-bonus.svg',
     rulesAlt: 'rock beats scissors and lizard, paper beats rock and spock, scissors beats paper and lizard, spock beats scissors and rock, lizard beats spock and paper',
-    background: 'images/bg-pentagon.svg',
+    background: './bg-pentagon.svg',
     original: false
 }
 
