@@ -5,7 +5,7 @@ export default function Buttons(
   { showModal, setMode, mode, choice }:
     { showModal: any; setMode: any; mode: number, choice: any }) {
 
-  const [isFading, setIsFading] = useState<boolean>(false)
+  const [isFading, setIsFading] = useState<boolean>(true)
   useEffect(() => { setIsFading(prevFade => !prevFade) }, [choice])
 
   return (

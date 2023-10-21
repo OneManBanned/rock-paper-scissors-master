@@ -20,7 +20,7 @@ export default function Header(
                     classNames="animateHeaderFade" >
                     <div ref={nodeRef} className="headerContainer">
                         <img className="headerContainer_name" alt={altText}
-                            src={animate ? original.img : bonus.img}
+                            src={!mode ? original.img : bonus.img}
                         />
                         <div className="headerContainer_scoreBoard">
                             <h2 className="headerContainer_scoreBoard_name font-600">score</h2>
