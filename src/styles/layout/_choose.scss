@@ -14,8 +14,7 @@
     }
 
     &_original {
-        // font size controls box-shadows of choice options
-        font-size: clamp(0.55rem, -0.1889rem + 4.2222vw, 1.5rem);
+        font-size: clamp(0.7rem, 0.5798rem + 0.6867vw, 0.9rem);
 
         @include dt {
             font-size: 115%;
@@ -24,7 +23,7 @@
 
     &_bonus {
         // font size controls box-shadows of choice options
-        font-size: clamp(0.45rem, 0.0222rem + 2.4444vw, 1rem);
+        font-size: clamp(0.6rem, 0.57rem + 0.1717vw, 0.65rem);
 
         @include dt {
             font-size: .85rem;

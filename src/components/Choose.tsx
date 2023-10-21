@@ -2,15 +2,13 @@ import { useState, useRef, useEffect } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { createItemsArray, original, bonus } from '../data';
 
-
-export default function Choose(
-    { choice, setChoice, mode }: { choice: string; setChoice: any; mode: number }) {
+export default function Choose({ choice, setChoice, mode }:
+    { choice: string; setChoice: any; mode: number }) {
 
     const [isEnter, setIsEnter] = useState<boolean>(mode === 0 ? true : false)
     const [animateSelect, setAnimateSelect] = useState<boolean>(false)
 
-    const originalRef = useRef(null), bonusRef = useRef(null)
-    const nodeRef = isEnter ? originalRef : bonusRef;
+    const nodeRef = useRef(null)
 
     useEffect(() => { choice ? setAnimateSelect(true) : setAnimateSelect(false) }, [choice])
     useEffect(() => { mode === 0 ? setIsEnter(true) : setIsEnter(false) }, [mode])
@@ -19,7 +17,7 @@ export default function Choose(
 
     return (
         <SwitchTransition mode={'out-in'}>
-            <CSSTransition key={isEnter} timeout={750} appear={true} nodeRef={nodeRef}
+            <CSSTransition key={isEnter ? 'Choose' : 'Reveal'} timeout={750} appear={true} nodeRef={nodeRef}
                 classNames={'animateChoose'} >
                 <div ref={nodeRef} className={isEnter
                     ? 'chooseContainer chooseContainer_original'

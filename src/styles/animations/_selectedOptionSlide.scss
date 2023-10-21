@@ -11,9 +11,9 @@
 }
 
 .animateSelect-original-rock-enter-active {
-    top: -29.5%;
+    top: -31.5%;
     left: -57.5%;
-    transform: scale(106.5%);
+    transform: scale(109%);
     transition: left 1000ms, top 1000ms, transform 1000ms;
 
     @include dt {
@@ -25,9 +25,9 @@
 }
 
 .animateSelect-original-rock-enter-done {
-    top: -29.5%;
+    top: -31.5%;
     left: -57.5%;
-    transform: scale(106.5%);
+    transform: scale(109%);
 
     @include dt {
         top: 27%;
@@ -38,9 +38,9 @@
 
 .animateSelect-original-scissors-enter-active,
 .animateSelect-original-paper-enter-active {
-    top: -29.5%;
-    left: 1.5%;
-    transform: scale(106.5%);
+    top: -31.5%;
+    left: 1%;
+    transform: scale(109%);
     transition: left 1000ms, top 1000ms, transform 1000ms;
 
     @include dt {
@@ -53,9 +53,9 @@
 
 .animateSelect-original-scissors-enter-done,
 .animateSelect-original-paper-enter-done {
-    top: -29.5%;
-    left: 1.5%;
-    transform: scale(106.5%);
+    top: -31.5%;
+    left: 1%;
+    transform: scale(109%);
 
     @include dt {
         transform: scale(156%);

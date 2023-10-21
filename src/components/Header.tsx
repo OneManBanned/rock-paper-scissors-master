@@ -14,13 +14,13 @@ export default function Header(
 
     return (
         <SwitchTransition mode={'out-in'}>
-            <CSSTransition key={animate} timeout={400} noderef={nodeRef}
-                classNames="animateHeader" >
+            <CSSTransition key={animate ? 'original' : 'bonus'}
+                timeout={400} nodeRef={nodeRef} classNames="animateHeader" >
                 <CSSTransition in={animate} appear timeout={750}
                     classNames="animateHeaderFade" >
                     <div ref={nodeRef} className="headerContainer">
                         <img className="headerContainer_name" alt={altText}
-                            src={animate ? bonus.img : original.img}
+                            src={animate ? original.img : bonus.img}
                         />
                         <div className="headerContainer_scoreBoard">
                             <h2 className="headerContainer_scoreBoard_name font-600">score</h2>

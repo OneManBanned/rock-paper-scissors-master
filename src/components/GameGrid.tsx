@@ -8,29 +8,36 @@ export default function GameGrid(
         mode: number, choice: string, setChoice: any, currentGameArr: string[], setScore: any
     }) {
 
-    const [hasChoose, setHasChoose] = useState<boolean>(false)
+    const [hasChoose, setHasChoose] = useState<boolean>(true)
 
-    const nodeRef = useRef(null)
+    const revealRef = useRef(null), chooseRef = useRef(null)
+    const nodeRef = hasChoose ? revealRef : chooseRef
 
     useEffect(() => { choice ? setHasChoose(true) : setHasChoose(false) }, [choice])
 
     return (
         <SwitchTransition mode={'out-in'}>
-            <CSSTransition key={hasChoose} timeout={hasChoose ? 0 : 1000} noderef={nodeRef}
+            <CSSTransition key={hasChoose ? 'Reveal' : 'Choose'}
+                timeout={hasChoose ? 0 : 1000} nodeRef={nodeRef}
                 classNames='stateAnimate'>
-                <div ref={nodeRef} className='gameGridContainer'>{
+                <div className='gameGridContainer'>{
                     !hasChoose
-                        ? <Choose
-                            choice={choice}
-                            setChoice={setChoice}
-                            mode={mode}
-                        />
-                        : <Reveal
-                            currentGameArr={currentGameArr}
-                            choice={choice}
-                            setScore={setScore}
-                            setChoice={setChoice} />
-                } </div>
+                        ? <div ref={chooseRef} className='bgc'>
+                            <Choose
+                                choice={choice}
+                                setChoice={setChoice}
+                                mode={mode}
+                            />
+                        </div>
+                        : <div ref={revealRef} className='bgr'>
+                            <Reveal
+                                currentGameArr={currentGameArr}
+                                choice={choice}
+                                setScore={setScore}
+                                setChoice={setChoice} />
+                        </div>
+                }
+                </div>
             </CSSTransition>
         </SwitchTransition>
     )

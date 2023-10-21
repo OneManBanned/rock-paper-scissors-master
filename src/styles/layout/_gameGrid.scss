@@ -13,3 +13,17 @@
         margin-block: 1.5rem 5rem;
     }
 }
+
+.bgc {
+    @include dt {
+        align-self: flex-end;
+    }
+}
+
+.bgr {
+    width: 100%;
+
+    @include dt {
+        width: unset;
+    }
+}
